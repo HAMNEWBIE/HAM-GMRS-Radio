@@ -630,6 +630,18 @@
     });
   }
 
+  /* Plain link copy buttons */
+  Array.prototype.forEach.call(document.querySelectorAll(".btn-copylink"), function (btn) {
+    btn.addEventListener("click", function () {
+      var url = btn.getAttribute("data-copy");
+      navigator.clipboard.writeText(url).then(function () {
+        statusEl.textContent = "Link copied: " + url;
+      }, function () {
+        statusEl.textContent = "Copy failed. Select the link text and copy it manually.";
+      });
+    });
+  });
+
   /* Net control script copy button */
   var scriptBtn = document.getElementById("copy-script");
   if (scriptBtn) {
