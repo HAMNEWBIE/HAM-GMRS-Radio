@@ -77,21 +77,52 @@
     <p id="house-rules" class="house-rules"></p>
   </section>
 
-  <section class="script-section no-print">
-    <h2>Run it on your net</h2>
+  <section class="embed-section no-print">
+    <h2>Embed this on your site</h2>
     <p class="section-note">
-      A script net control can read on the air to introduce the game, about a
-      minute of airtime. Square brackets are yours to fill in or drop.
+      Put a live, playable card on your club page, blog, or personal site,
+      and point your players there instead of here. Your net, your site, your
+      game night. No account, no key, nothing to install.
+    </p>
+    <ol class="embed-steps">
+      <li>Pick the net type above. The code below follows your choice.</li>
+      <li>Press <strong>Copy embed code</strong>.</li>
+      <li>Paste it into your page's HTML. On WordPress use a Custom HTML
+        block; on most other site builders look for an HTML or Embed block.
+        If you edit raw HTML files, paste it wherever the card should appear.</li>
+      <li>Publish. Visitors get a playable card right on your page.</li>
+    </ol>
+    <pre class="embed-code"><code id="embed-code">&lt;iframe src="https://hamnewbie.github.io/HAM-GMRS-Radio/bingo.html?embed=1&amp;deck=ham"
+  width="100%" height="980" style="border:0" title="Net Bingo"&gt;&lt;/iframe&gt;</code></pre>
+    <button type="button" id="copy-embed" class="btn">Copy embed code</button>
+    <p class="fineprint">
+      Tweaks: every visitor gets a fresh shuffle by default. To hand everyone
+      the identical card (one card per net night), add
+      <code>&amp;seed=123456</code> inside the src, using any number you like:
+      same number, same card. Change <code>deck=ham</code> to
+      <code>deck=gmrs</code>, <code>deck=wx</code>, or <code>deck=skills</code>
+      by hand if you prefer.
+      If the card gets cut off on your page, raise the
+      <code>height</code> number.
+    </p>
+  </section>
+
+  <section class="script-section no-print">
+    <h2>Here is how to introduce it</h2>
+    <p class="section-note">
+      Once the card is on your site, or you're just sharing the link, this is
+      a script net control can read on the air, about a minute of airtime.
+      Square brackets are yours to fill in or drop.
     </p>
     <div class="net-script" id="net-script">
       <p>
         &ldquo;Before we get started tonight, we're trying something fun on
         [NET NAME]: Net Bingo. Grab your phone or computer and go to
-        <strong>hamnewbie.github.io/HAM-GMRS-Radio</strong>, then tap Bingo.
-        You'll get a random card full of things that, let's be honest, happen
-        on every net. Somebody doubles. Somebody's roger beep is still on.
-        Somebody reports weather that already happened. When you hear one
-        actually happen tonight, tap that square. Five in a row, any
+        [YOUR SITE / <strong>hamnewbie.github.io/HAM-GMRS-Radio</strong>, then
+        tap Bingo]. You'll get a random card full of things that, let's be
+        honest, happen on every net. Somebody doubles. Somebody's roger beep
+        is still on. Somebody reports weather that already happened. When you
+        hear one actually happen tonight, tap that square. Five in a row, any
         direction, is bingo.&rdquo;
       </p>
       <p>
@@ -117,38 +148,7 @@
       you ran a different one) to see their exact card, then check the claimed
       line against what actually happened. Winners can also press Save your
       winning card and send you the image, which is stamped with the card
-      number, marked count, and save time. Reading the full URL on the air is
-      a mouthful, so consider embedding the card on your club site and sending
-      people there instead.
-    </p>
-  </section>
-
-  <section class="embed-section no-print">
-    <h2>Embed this on your site</h2>
-    <p class="section-note">
-      Put a live, playable card on your club page, blog, or personal site.
-      No account, no key, nothing to install.
-    </p>
-    <ol class="embed-steps">
-      <li>Pick the net type above. The code below follows your choice.</li>
-      <li>Press <strong>Copy embed code</strong>.</li>
-      <li>Paste it into your page's HTML. On WordPress use a Custom HTML
-        block; on most other site builders look for an HTML or Embed block.
-        If you edit raw HTML files, paste it wherever the card should appear.</li>
-      <li>Publish. Visitors get a playable card right on your page.</li>
-    </ol>
-    <pre class="embed-code"><code id="embed-code">&lt;iframe src="https://hamnewbie.github.io/HAM-GMRS-Radio/bingo.html?embed=1&amp;deck=ham"
-  width="100%" height="980" style="border:0" title="Net Bingo"&gt;&lt;/iframe&gt;</code></pre>
-    <button type="button" id="copy-embed" class="btn">Copy embed code</button>
-    <p class="fineprint">
-      Tweaks: every visitor gets a fresh shuffle by default. To hand everyone
-      the identical card (one card per net night), add
-      <code>&amp;seed=123456</code> inside the src, using any number you like:
-      same number, same card. Change <code>deck=ham</code> to
-      <code>deck=gmrs</code>, <code>deck=wx</code>, or <code>deck=skills</code>
-      by hand if you prefer.
-      If the card gets cut off on your page, raise the
-      <code>height</code> number.
+      number, marked count, and save time.
     </p>
   </section>
 
