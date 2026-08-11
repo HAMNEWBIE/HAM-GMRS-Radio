@@ -213,6 +213,18 @@
     }
   };
 
+  /* UTC, the only timezone a radio log respects */
+  function utcStamp() {
+    return new Date().toISOString().replace("T", " ").slice(0, 19) + "Z";
+  }
+
+  var utcClock = document.getElementById("utc-clock");
+  function tickClock() {
+    if (utcClock) utcClock.textContent = utcStamp().slice(11);
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+
   var FREE_INDEX = 12;
   var grid = document.getElementById("grid");
   var deckSelect = document.getElementById("deck");
@@ -503,7 +515,7 @@
     ctx.fillText(
       "card " + state.seed + " · " + count + " marked" +
       (wins.length ? " · BINGO" : "") +
-      " · saved " + new Date().toLocaleString(),
+      " · saved " + utcStamp(),
       W / 2, footY + 12
     );
 

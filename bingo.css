@@ -377,6 +377,8 @@ body.bigtext .lede, body.bigtext .house-rules { font-size: 1.2rem; }
 
 .embed-section code { font-family: "Share Tech Mono", monospace; }
 
+.ops-deck-group { margin-bottom: 16px; max-width: 320px; }
+
 .linkshare-title {
   font-family: "Archivo", sans-serif;
   font-weight: 700;
@@ -470,6 +472,7 @@ body.embed .topbar,
 body.embed .bingo-intro,
 body.embed .script-section,
 body.embed .embed-section,
+body.embed .ops-callout,
 body.embed .decoder,
 body.embed .footer { display: none; }
 

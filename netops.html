@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Net Bingo for Net Operators</title>
+<meta name="description" content="Run Net Bingo on your net: embed it on your club site, introduce it on the air, share links and QR codes, and verify winning claims.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Michroma&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="bingo.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%233A2A1D'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FF9D3C' font-family='monospace'>((</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-row">
+    <a class="brand" href="index.html">HAM-GMRS-RADIO</a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="bingo.html">BINGO</a>
+      <a href="netops.html" aria-current="page">NET OPS</a>
+      <a href="index.html#gmrs">GMRS</a>
+      <a href="index.html#ham">HAM</a>
+      <a href="index.html#mesh">MESH</a>
+      <a href="index.html#links">LINKS</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="bingo-intro">
+    <h1>Run it on your net</h1>
+    <p class="lede">
+      Everything net control needs to run <a href="bingo.html">Net Bingo</a>:
+      put the game on your club site, introduce it on the air, hand out links
+      and QR codes, and verify winning claims. Players never need this page;
+      send them to the card.
+    </p>
+  </div>
+
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+
+  <section class="embed-section">
+    <h2>Embed this on your site</h2>
+    <p class="section-note">
+      Put a live, playable card on your club page, blog, or personal site,
+      and point your players there instead of here. Your net, your site, your
+      game night. No account, no key, nothing to install. What it does for a
+      net or club:
+    </p>
+    <ul class="embed-why">
+      <li><strong>Traffic to your site, every net night.</strong> The game
+        lives on your page, so your address is the one read on the air.</li>
+      <li><strong>Giveaways that hold up.</strong> Card numbers make winners
+        verifiable, so prizes and door-prize drawings are easy to run
+        straight.</li>
+      <li><strong>A friendlier front door for the hobby.</strong> Lurkers get
+        something to do while they listen, and newcomers learn the culture
+        one square at a time.</li>
+    </ul>
+    <div class="control-group ops-deck-group">
+      <label for="ops-deck">Net type for the code and links below</label>
+      <select id="ops-deck">
+        <option value="ham">Ham net</option>
+        <option value="gmrs">GMRS net</option>
+        <option value="wx">SKYWARN / weather net</option>
+        <option value="skills">Ham skills challenge</option>
+      </select>
+    </div>
+    <ol class="embed-steps">
+      <li>Pick the net type above. The code below follows your choice.</li>
+      <li>Press <strong>Copy embed code</strong>.</li>
+      <li>Paste it into your page's HTML. On WordPress use a Custom HTML
+        block; on most other site builders look for an HTML or Embed block.
+        If you edit raw HTML files, paste it wherever the card should appear.</li>
+      <li>Publish. Visitors get a playable card right on your page.</li>
+    </ol>
+    <pre class="embed-code"><code id="embed-code">&lt;iframe src="https://wsnj234.github.io/amrad/bingo.html?embed=1&amp;deck=ham"
+  width="100%" height="980" style="border:0" title="Net Bingo"
+  allow="web-share; clipboard-write"&gt;&lt;/iframe&gt;</code></pre>
+    <button type="button" id="copy-embed" class="btn">Copy embed code</button>
+    <p class="fineprint">
+      Tweaks: every visitor gets a fresh shuffle by default. To hand everyone
+      the identical card (one card per net night), add
+      <code>&amp;seed=123456</code> inside the src, using any number you like:
+      same number, same card. If the card gets cut off on your page, raise
+      the <code>height</code> number.
+    </p>
+
+    <h3 class="linkshare-title">Can't embed? Fall back to a plain link</h3>
+    <p class="section-note">
+      The embed above is the best way to run this: the game lives on your
+      site, under your name, at an address your net already knows. Reach for
+      a plain link only where an iframe can't go: group chats and texts
+      during the net, club email blasts, Facebook groups and forums (most
+      strip iframes), or a QR code on a flyer. Same cards either way. Each
+      visitor gets their own fresh shuffle; add
+      <code>&amp;seed=123456</code> to the end if everyone should get the
+      same card.
+    </p>
+    <ul class="linkshare">
+      <li>
+        <span class="linkshare-label">Ham net</span>
+        <code>https://wsnj234.github.io/amrad/bingo.html?deck=ham</code>
+        <button type="button" class="btn btn-copylink" data-copy="https://wsnj234.github.io/amrad/bingo.html?deck=ham">Copy</button>
+        <button type="button" class="btn btn-copylink btn-qr" data-qr="https://wsnj234.github.io/amrad/bingo.html?deck=ham" aria-expanded="false">QR</button>
+      </li>
+      <li>
+        <span class="linkshare-label">GMRS net</span>
+        <code>https://wsnj234.github.io/amrad/bingo.html?deck=gmrs</code>
+        <button type="button" class="btn btn-copylink" data-copy="https://wsnj234.github.io/amrad/bingo.html?deck=gmrs">Copy</button>
+        <button type="button" class="btn btn-copylink btn-qr" data-qr="https://wsnj234.github.io/amrad/bingo.html?deck=gmrs" aria-expanded="false">QR</button>
+      </li>
+      <li>
+        <span class="linkshare-label">SKYWARN / weather</span>
+        <code>https://wsnj234.github.io/amrad/bingo.html?deck=wx</code>
+        <button type="button" class="btn btn-copylink" data-copy="https://wsnj234.github.io/amrad/bingo.html?deck=wx">Copy</button>
+        <button type="button" class="btn btn-copylink btn-qr" data-qr="https://wsnj234.github.io/amrad/bingo.html?deck=wx" aria-expanded="false">QR</button>
+      </li>
+      <li>
+        <span class="linkshare-label">Skills challenge</span>
+        <code>https://wsnj234.github.io/amrad/bingo.html?deck=skills</code>
+        <button type="button" class="btn btn-copylink" data-copy="https://wsnj234.github.io/amrad/bingo.html?deck=skills">Copy</button>
+        <button type="button" class="btn btn-copylink btn-qr" data-qr="https://wsnj234.github.io/amrad/bingo.html?deck=skills" aria-expanded="false">QR</button>
+      </li>
+      <li>
+        <span class="linkshare-label">Short link (ham)</span>
+        <code>https://tinyurl.com/wsnj234</code>
+        <button type="button" class="btn btn-copylink" data-copy="https://tinyurl.com/wsnj234">Copy</button>
+        <button type="button" class="btn btn-copylink btn-qr" data-qr="https://tinyurl.com/wsnj234" aria-expanded="false">QR</button>
+      </li>
+    </ul>
+  </section>
+
+  <section class="script-section">
+    <h2>Here is how to introduce it</h2>
+    <p class="section-note">
+      Once the card is on your site, or you're just sharing the link, this is
+      a script net control can read on the air, about a minute of airtime.
+      Square brackets are yours to fill in or drop.
+    </p>
+    <div class="net-script" id="net-script">
+      <p>
+        &ldquo;Before we get started tonight, we're trying something fun on
+        [NET NAME]: Net Bingo. Grab your phone and go to [YOUR WEBSITE /
+        tinyurl.com/wsnj234].
+        You'll get a random card full of things that, let's be honest, happen
+        on every net. Somebody doubles. Somebody's roger beep is still on.
+        Somebody reports weather that already happened. When you hear one
+        actually happen tonight, tap that square. Five in a row, any
+        direction, is bingo.&rdquo;
+      </p>
+      <p>
+        &ldquo;Two rules. The center square is free, you earned it by showing
+        up. And no calling bingo during check-ins. When we get to
+        [THE COMMENTS ROUND / THE END OF THE NET], come back with your
+        callsign and claim it. Every card has a card number at the top. Give
+        us that number with your claim, because the site can regenerate your
+        exact card from it, so wins are checkable. [Tonight's winner gets
+        PRIZE.]&rdquo;
+      </p>
+      <p>
+        &ldquo;If you'd rather play on paper, hit Print on the site before we
+        start and mark squares with a pen. That's it. Good luck, and if you
+        hear yourself in a square tonight, congratulations, you're part of
+        the game.&rdquo;
+      </p>
+    </div>
+    <button type="button" id="copy-script" class="btn">Copy script</button>
+    <p class="fineprint">
+      Keep the spoken address short. Best is your own site with the card
+      embedded. No site? The short link
+      <a href="https://tinyurl.com/wsnj234">tinyurl.com/wsnj234</a> goes
+      straight to the cards and survives being read on the air. Either way,
+      put the link in the club email or group chat before the net so nobody
+      has to copy a URL by ear.
+    </p>
+  </section>
+
+  <section class="script-section">
+    <h2>Verify a bingo claim</h2>
+    <p class="section-note">
+      When someone claims bingo, ask for their card number, punch it in
+      below, and check the claimed line against what actually happened on
+      the net. Winners can also press Save your winning card and send you
+      the image, which is stamped with the card number, marked count, and
+      save time.
+    </p>
+    <form class="verify-form" id="verify-form">
+      <div class="control-group">
+        <label for="verify-seed">Claimed card number</label>
+        <input id="verify-seed" inputmode="numeric" autocomplete="off" placeholder="481207" required>
+      </div>
+      <a id="verify-open" class="btn" href="#" target="_blank" rel="noopener">Open that card</a>
+    </form>
+    <p class="fineprint">
+      Opens the exact card for that number in a new tab, using the net type
+      selected in the embed section above.
+    </p>
+  </section>
+
+</main>
+
+<footer class="wrap footer">
+  <span>WSNJ234 &middot; MIT license</span>
+  <a href="https://github.com/WSNJ234/amrad">Source on GitHub</a>
+</footer>
+
+<script src="netops.js"></script>
+</body>
+</html>
