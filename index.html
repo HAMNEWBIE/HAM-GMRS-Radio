@@ -158,19 +158,32 @@
       <span class="range-tag">902&ndash;928 MHz ISM / 2.4 + 5.8 GHz</span>
     </div>
     <p class="section-note">
-      Two different worlds that both call themselves mesh. One is license-free
-      text messaging over LoRa, the other is licensed high-bandwidth IP networking
-      on repurposed WiFi gear.
+      License-free encrypted texting over LoRa on one side, licensed
+      high-bandwidth IP networking on the other. On the LoRa side this site
+      runs MeshCore.
     </p>
 
     <div class="cards">
       <article class="card">
+        <h3><span class="band">LORA</span> MeshCore</h3>
+        <p>
+          Off-grid, end-to-end encrypted text and position sharing over LoRa,
+          in the 902&ndash;928 MHz ISM band in the US, so no license is
+          required. Runs on cheap hardware (Heltec V3, RAK, LILYGO T-Deck and
+          50+ other boards). Nodes only route through designated repeaters
+          instead of every radio re-flooding every packet, which keeps busy
+          meshes usable, and room servers give you shared group channels.
+          Range is line-of-sight: one repeater on a hill covers everyone below.
+        </p>
+        <p class="card-note"><a href="https://github.com/meshcore-dev/MeshCore">github.com/meshcore-dev/MeshCore</a></p>
+      </article>
+      <article class="card">
         <h3><span class="band">LORA</span> Meshtastic</h3>
         <p>
-          Off-grid, encrypted text and position sharing between cheap LoRa nodes
-          (Heltec, RAK, LILYGO, around $30 each). Runs in the 902&ndash;928 MHz
-          ISM band in the US, so no license is required. Range is line-of-sight:
-          a node on a hill routes for everyone below it.
+          The other big LoRa mesh, same band and mostly the same hardware, with
+          a larger installed base but flood-based routing. Worth knowing about
+          since a board flashed for one can be reflashed for the other in
+          minutes.
         </p>
         <p class="card-note"><a href="https://meshtastic.org">meshtastic.org</a></p>
       </article>
@@ -198,8 +211,8 @@
       <li><a href="https://mygmrs.com">myGMRS</a><span>GMRS repeater directory and community</span></li>
       <li><a href="https://hamstudy.org">HamStudy</a><span>free license exam practice</span></li>
       <li><a href="https://www.arrl.org/band-plan">ARRL band plan</a><span>who goes where on every ham band</span></li>
-      <li><a href="https://meshtastic.org">Meshtastic docs</a><span>firmware, hardware list, setup guides</span></li>
-      <li><a href="https://meshmap.net">MeshMap</a><span>public map of reporting Meshtastic nodes</span></li>
+      <li><a href="https://github.com/meshcore-dev/MeshCore">MeshCore</a><span>firmware source, docs, and supported hardware</span></li>
+      <li><a href="https://meshtastic.org">Meshtastic docs</a><span>the other LoRa mesh, for comparison</span></li>
       <li><a href="https://chirpmyradio.com">CHIRP</a><span>free radio programming software</span></li>
       <li><a href="https://www.radioreference.com">RadioReference</a><span>scanner frequencies and databases</span></li>
     </ul>
