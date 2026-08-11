@@ -9,6 +9,9 @@ license paths, useful links, and Net Bingo.
 - `bingo.html`: Net Bingo, randomized cards of things that actually happen on
   nets, with decks for ham, GMRS, and SKYWARN/weather nets. Play online, print,
   or download as PNG. Cards are seeded, so sharing the URL shares the card.
+  Add `?embed=1` to embed just the card in an iframe on another site
+  (`deck` and `seed` params work there too); a copy-paste snippet is on the
+  page itself.
 
 ## Local preview
 

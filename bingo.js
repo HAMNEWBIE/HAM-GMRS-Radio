@@ -41,7 +41,21 @@
         "Elmer explains SWR for the 40th time, still kind",
         "“Back in my day” story predates the repeater",
         "Unprompted praise for repeater owner (tower bill due?)",
-        "Question actually solved — stunned silence"
+        "Question actually solved — stunned silence",
+        "Signal report is “59”, then asks for everything repeated",
+        "Tech question gets four answers at once, all different",
+        "“I'll take it offline” (it is never taken offline)",
+        "Someone tunes up right on top of the net",
+        "“Is the repeater down?” asked on the repeater",
+        "Net control blanks on their own callsign for a beat",
+        "Wind noise: the mobile has a window down and a story to tell",
+        "“You're coming in broken” (full conversation proceeds anyway)",
+        "“Quick comment” enters minute four",
+        "New HT arrives with every keypad beep enabled",
+        "The 10-minute ID lands at 9:59, and he's proud of it",
+        "Announcement for an event that happened last Saturday",
+        "Ragchew continues 30 seconds after “let's clear the frequency”",
+        "Solar report delivered to a net that never touches HF"
       ]
     },
     gmrs: {
@@ -78,7 +92,20 @@
         "“Over and out” (pick one)",
         "Echo test on the linked system. Again.",
         "Mobile flutter through the entire check-in",
-        "“Copy that, copy that”"
+        "“Copy that, copy that”",
+        "“Beats them cell phones” (heard via speakerphone)",
+        "Attic antenna installed; HOA remains unaware, undefeated",
+        "Radio check request answered by six people at once",
+        "“Loud and clear” (nobody asked)",
+        "A radio loudly announces its own menu settings mid-net",
+        "Grandkid delivers the cuteness check-in, net melts",
+        "“We should do this weekly” (this is the weekly net)",
+        "Garage door opener blamed for interference. Again.",
+        "Basement signal test: heroic, doomed",
+        "“Just monitoring” guy accidentally keys up",
+        "New antenna ordered; range brag updated in advance",
+        "Dog barks at the roger beep. Every time.",
+        "Channel 19 trucker talk cited. That's CB. He knows."
       ]
     },
     wx: {
@@ -115,7 +142,20 @@
         "Wind estimate exceeds the hurricane scale",
         "Dew point small talk",
         "Spotter training quoted chapter and verse",
-        "“Is the net still active?” It is not."
+        "“Is the net still active?” It is not.",
+        "“It's headed right for us” (it is not)",
+        "Radar screenshot described aloud, pixel by pixel",
+        "Sunshine reported, sternly",
+        "Two spotters report the same cloud, disagree completely",
+        "“Take cover” advice from a man outside filming it",
+        "“My knee says storm” briefly outranks the radar",
+        "Net control asks for a county, receives a life story",
+        "Hail compared to a fruit nobody has ever bought",
+        "“Back in the derecho of...” is spoken",
+        "Rain total disputed by a neighbor two doors down",
+        "Storm misses the county; net quietly takes credit",
+        "Graupel is correctly identified. Nobody believes it.",
+        "Anemometer purchased mid-net"
       ]
     }
   };
@@ -364,8 +404,24 @@
     this.setAttribute("aria-pressed", on ? "true" : "false");
   });
 
+  /* Embed snippet copy button */
+  var copyBtn = document.getElementById("copy-embed");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      var code = document.getElementById("embed-code").textContent;
+      navigator.clipboard.writeText(code).then(function () {
+        statusEl.textContent = "Embed code copied.";
+      }, function () {
+        statusEl.textContent = "Copy failed. Select the code and copy it manually.";
+      });
+    });
+  }
+
   /* Init from URL, or deal fresh */
   var params = new URLSearchParams(window.location.search);
+  if (params.get("embed") === "1") {
+    document.body.classList.add("embed");
+  }
   var deckParam = params.get("deck");
   var seedParam = parseInt(params.get("seed"), 10);
   buildCard(

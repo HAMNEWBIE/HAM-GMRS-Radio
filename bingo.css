@@ -265,6 +265,51 @@ body.bigtext .lede, body.bigtext .house-rules { font-size: 1.2rem; }
   body.bigtext .cell { font-size: 1rem; min-height: 108px; }
 }
 
+/* Embed snippet section */
+
+.embed-section { margin-bottom: 40px; }
+
+.embed-section h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 6px;
+  margin: 0 0 6px;
+}
+
+.embed-code {
+  background: var(--panel);
+  color: var(--amber);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  padding: 14px 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0 0 10px;
+}
+
+.embed-section code { font-family: "IBM Plex Mono", monospace; }
+
+/* Embed mode: just the controls and the card, for iframes */
+
+body.embed .topbar,
+body.embed .bingo-intro,
+body.embed .embed-section,
+body.embed .decoder,
+body.embed .footer { display: none; }
+
+body.embed main.wrap {
+  max-width: none;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+body.embed .controls { margin-top: 8px; }
+
 /* Print: just the card, ink-friendly */
 
 @media print {
