@@ -157,6 +157,43 @@
         "Graupel is correctly identified. Nobody believes it.",
         "Anemometer purchased mid-net"
       ]
+    },
+    skills: {
+      label: "Ham skills challenge",
+      free: "FREE\nTurned it on and listened",
+      house: "House rules: one point for reading up on a square, three for actually doing it. Mark it either way, but you know which one counts.",
+      squares: [
+        "Go on a foxhunt (or be the fox)",
+        "Send an SSTV image over the air",
+        "Listen to the ISS or an FM ham satellite pass",
+        "Hit a repeater in an adjacent county",
+        "Attend a club meeting, in person or online",
+        "Build a simple wire antenna",
+        "Wind a balun or a choke",
+        "Make a PowerPole extension cord",
+        "3D print a radio accessory",
+        "Connect through WIRES-X, IRLP, or EchoLink",
+        "Make a simplex contact over 10 miles",
+        "Program a radio from the keypad, no software",
+        "Check into a net on a mode you've never used",
+        "Work a POTA station (or activate a park yourself)",
+        "Decode FT8, or better, make an FT8 contact",
+        "Copy one CW character at any speed",
+        "Measure the SWR on your antenna",
+        "Make a contact at 1 watt or less",
+        "Send an APRS position beacon",
+        "Receive a NOAA weather satellite image",
+        "Send an email over radio with Winlink",
+        "Make one Field Day or contest contact",
+        "Try digital voice: DMR, D-STAR, or Fusion",
+        "Teach one thing to a newer operator",
+        "Take a practice exam for the next license class",
+        "Operate portable from a park or a summit",
+        "Build a go-box or a go-bag",
+        "Log a contact in an actual logbook",
+        "Solder something. Anything.",
+        "Make a cross-band contact"
+      ]
     }
   };
 
@@ -336,7 +373,7 @@
       ctx.strokeRect(x, y, SIZE, RH);
 
       ctx.fillStyle = "#171b16";
-      var fs = free ? 30 : 24;
+      var fs = free ? 32 : 26;
       ctx.font = (free ? "600 " : "400 ") + fs + "px Barlow, sans-serif";
       var lines = [];
       text.split("\n").forEach(function (part) {

@@ -33,8 +33,9 @@
     <h1>Net Bingo</h1>
     <p class="lede">
       A randomized card of things that actually happen on the net. Mark squares
-      as you hear them. Five in a row wins. Share this page's URL and everyone
-      plays the same card, or hit New card for a fresh shuffle.
+      as you hear them, or on the skills deck, as you try them. Five in a row
+      wins. Share this page's URL and everyone plays the same card, or hit
+      New card for a fresh shuffle.
     </p>
   </div>
 
@@ -45,6 +46,7 @@
         <option value="ham">Ham net</option>
         <option value="gmrs">GMRS net</option>
         <option value="wx">SKYWARN / weather net</option>
+        <option value="skills">Ham skills challenge</option>
       </select>
     </div>
     <button type="button" id="new-card" class="btn btn-primary">New card</button>
@@ -95,7 +97,8 @@
       the identical card (one card per net night), add
       <code>&amp;seed=123456</code> inside the src, using any number you like:
       same number, same card. Change <code>deck=ham</code> to
-      <code>deck=gmrs</code> or <code>deck=wx</code> by hand if you prefer.
+      <code>deck=gmrs</code>, <code>deck=wx</code>, or <code>deck=skills</code>
+      by hand if you prefer.
       If the card gets cut off on your page, raise the
       <code>height</code> number.
     </p>
