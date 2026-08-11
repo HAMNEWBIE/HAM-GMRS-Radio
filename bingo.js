@@ -553,6 +553,46 @@
     this.setAttribute("aria-pressed", on ? "true" : "false");
   });
 
+  /* Claim verification: open the card for a claimed number in a new tab.
+     A real link (kept up to date as the number is typed) can't be popup-blocked. */
+  var verifyForm = document.getElementById("verify-form");
+  if (verifyForm) {
+    var verifyInput = document.getElementById("verify-seed");
+    var verifyOpen = document.getElementById("verify-open");
+
+    var verifySeed = function () {
+      var n = parseInt(verifyInput.value.replace(/\D/g, ""), 10);
+      return n > 0 ? n : 0;
+    };
+
+    var updateVerifyLink = function () {
+      var n = verifySeed();
+      if (n) {
+        verifyOpen.href = "bingo.html?deck=" + deckSelect.value + "&seed=" + n;
+      } else {
+        verifyOpen.removeAttribute("href");
+      }
+    };
+
+    verifyInput.addEventListener("input", updateVerifyLink);
+    deckSelect.addEventListener("change", updateVerifyLink);
+
+    verifyOpen.addEventListener("click", function (e) {
+      if (!verifySeed()) {
+        e.preventDefault();
+        statusEl.textContent = "Enter the card number exactly as the claimant read it.";
+        verifyInput.focus();
+        return;
+      }
+      statusEl.textContent = "Opened card " + verifySeed() + " (" + DECKS[deckSelect.value].label + ") in a new tab.";
+    });
+
+    verifyForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      verifyOpen.click();
+    });
+  }
+
   /* Net control script copy button */
   var scriptBtn = document.getElementById("copy-script");
   if (scriptBtn) {

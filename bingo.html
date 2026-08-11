@@ -144,13 +144,21 @@
       Net control crib notes: keep the spoken address short. Best is your own
       site with the card embedded; failing that, put the link in the club
       email or group chat before the net so nobody has to copy a URL by ear.
-      When
-      someone claims bingo, ask for their card number and open
-      <code>bingo.html?deck=ham&amp;seed=THEIRNUMBER</code> (swap the deck if
-      you ran a different one) to see their exact card, then check the claimed
-      line against what actually happened. Winners can also press Save your
-      winning card and send you the image, which is stamped with the card
-      number, marked count, and save time.
+      When someone claims bingo, ask for their card number, punch it in below,
+      and check the claimed line against what actually happened on the net.
+      Winners can also press Save your winning card and send you the image,
+      which is stamped with the card number, marked count, and save time.
+    </p>
+    <form class="verify-form" id="verify-form">
+      <div class="control-group">
+        <label for="verify-seed">Claimed card number</label>
+        <input id="verify-seed" inputmode="numeric" autocomplete="off" placeholder="481207" required>
+      </div>
+      <a id="verify-open" class="btn" href="#" target="_blank" rel="noopener">Open that card</a>
+    </form>
+    <p class="fineprint">
+      Opens the exact card for that number in a new tab, using the net type
+      selected at the top of the page.
     </p>
   </section>
 
