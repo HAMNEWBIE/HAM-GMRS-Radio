@@ -231,6 +231,34 @@
     return Math.floor(100000 + Math.random() * 900000);
   }
 
+  /* Marks persist per card (deck + seed) so a reload mid-net loses nothing. */
+  function storageKey() {
+    return "netbingo:" + state.deck + ":" + state.seed;
+  }
+
+  function saveMarks() {
+    try {
+      var marked = [];
+      state.marks.forEach(function (m, i) {
+        if (m && i !== FREE_INDEX) marked.push(i);
+      });
+      if (marked.length) localStorage.setItem(storageKey(), JSON.stringify(marked));
+      else localStorage.removeItem(storageKey());
+    } catch (e) { /* private mode or storage full: play on without saving */ }
+  }
+
+  function loadMarks() {
+    try {
+      var raw = localStorage.getItem(storageKey());
+      if (!raw) return 0;
+      var saved = JSON.parse(raw);
+      saved.forEach(function (i) {
+        if (i >= 0 && i < 25) state.marks[i] = true;
+      });
+      return saved.length;
+    } catch (e) { return 0; }
+  }
+
   function buildCard(deckKey, seed) {
     var deck = DECKS[deckKey];
     var rng = mulberry32(seed);
@@ -240,7 +268,9 @@
     state.seed = seed;
     state.cells = cells;
     state.marks = cells.map(function (_, i) { return i === FREE_INDEX; });
+    var restored = loadMarks();
     render();
+    if (restored) checkBingo();
     var url = new URL(window.location.href);
     url.searchParams.set("deck", deckKey);
     url.searchParams.set("seed", String(seed));
@@ -293,20 +323,28 @@
     state.marks[i] = !state.marks[i];
     var btn = grid.children[i];
     btn.setAttribute("aria-pressed", state.marks[i] ? "true" : "false");
+    saveMarks();
     checkBingo();
   }
 
-  function checkBingo() {
-    var m = state.marks;
+  var LINES = (function () {
     var lines = [];
     for (var r = 0; r < 5; r++) lines.push([r * 5, r * 5 + 1, r * 5 + 2, r * 5 + 3, r * 5 + 4]);
     for (var c = 0; c < 5; c++) lines.push([c, c + 5, c + 10, c + 15, c + 20]);
     lines.push([0, 6, 12, 18, 24]);
     lines.push([4, 8, 12, 16, 20]);
+    return lines;
+  })();
 
-    var won = lines.some(function (line) {
-      return line.every(function (i) { return m[i]; });
+  function winningLines() {
+    return LINES.filter(function (line) {
+      return line.every(function (i) { return state.marks[i]; });
     });
+  }
+
+  function checkBingo() {
+    var m = state.marks;
+    var won = winningLines().length > 0;
 
     banner.hidden = !won;
     var count = m.filter(Boolean).length - 1;
@@ -406,6 +444,18 @@
       }
     });
 
+    var wins = winningLines();
+    ctx.strokeStyle = "rgba(225, 78, 14, 0.85)";
+    ctx.lineWidth = 14;
+    ctx.lineCap = "round";
+    wins.forEach(function (line) {
+      var a = line[0], b = line[4];
+      ctx.beginPath();
+      ctx.moveTo(M + SIZE * (a % 5) + SIZE / 2, TOP + RH * Math.floor(a / 5) + RH / 2);
+      ctx.lineTo(M + SIZE * (b % 5) + SIZE / 2, TOP + RH * Math.floor(b / 5) + RH / 2);
+      ctx.stroke();
+    });
+
     ctx.fillStyle = "#55604b";
     ctx.font = "italic 22px Barlow, sans-serif";
     var footY = TOP + RH * 5 + 60;
@@ -413,6 +463,16 @@
       ctx.fillText(ln, W / 2, footY);
       footY += 28;
     });
+
+    ctx.font = "500 22px 'IBM Plex Mono', monospace";
+    ctx.fillStyle = "#171b16";
+    var count = state.marks.filter(Boolean).length - 1;
+    ctx.fillText(
+      "card " + state.seed + " · " + count + " marked" +
+      (wins.length ? " · BINGO" : "") +
+      " · saved " + new Date().toLocaleString(),
+      W / 2, footY + 12
+    );
 
     var a = document.createElement("a");
     a.download = "Net_Bingo_" + state.deck + "_" + state.seed + ".png";
@@ -440,9 +500,12 @@
 
   document.getElementById("clear-marks").addEventListener("click", function () {
     state.marks = state.cells.map(function (_, i) { return i === FREE_INDEX; });
+    saveMarks();
     render();
     statusEl.textContent = "Marks cleared.";
   });
+
+  document.getElementById("save-winning").addEventListener("click", downloadPNG);
 
   document.getElementById("big-text").addEventListener("click", function () {
     var on = document.body.classList.toggle("bigtext");

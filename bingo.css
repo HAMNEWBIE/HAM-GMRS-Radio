@@ -110,6 +110,18 @@
   color: var(--amber-dim);
 }
 
+.btn-banner {
+  margin-left: auto;
+  background: transparent;
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.btn-banner:hover {
+  background: var(--amber);
+  color: var(--panel);
+}
+
 /* Card */
 
 .card-sheet {
