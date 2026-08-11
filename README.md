@@ -32,7 +32,10 @@ Built for GitHub Pages: plain HTML/CSS/JS, no build step. Enable Pages on the
 A curated list of active GitHub projects for radio people. The live
 version at [repos.html](https://wsnj234.github.io/amrad/repos.html)
 shows star counts and last-push dates, refreshed every Monday by a
-GitHub Action (`.github/workflows/update-repos.yml`).
+GitHub Action (`.github/workflows/update-repos.yml`). The same run scouts
+GitHub for new candidates (300+ stars, active in the last 60 days) and
+proposes them in an issue; nothing reaches the page without a hand edit
+to `repos.json`.
 
 ### Program your radio
 

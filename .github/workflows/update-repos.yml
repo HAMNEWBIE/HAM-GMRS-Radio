@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   update:
@@ -19,14 +20,21 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/update_repos.py
 
+      - name: Scout for new candidates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 scripts/scout_repos.py
+
       - name: Commit and push if changed
         run: |
-          if git diff --quiet repos-data.json; then
+          git add repos-data.json
+          [ -f scout-seen.json ] && git add scout-seen.json
+          if git diff --cached --quiet; then
             echo "No changes."
             exit 0
           fi
           git config user.name "WSNJ234"
           git config user.email "WSNJ234@users.noreply.github.com"
-          git add repos-data.json
-          git commit -m "Weekly repo stats refresh"
+          git commit -m "Weekly repo stats and scout refresh"
           git push
