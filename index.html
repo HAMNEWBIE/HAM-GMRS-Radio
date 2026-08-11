@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAM / GMRS / Mesh Field Reference</title>
+<meta name="description" content="A plain field reference for ham radio, GMRS, and mesh networking. Frequencies, license paths, and links.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%2310130C'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FFB000' font-family='monospace'>((</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-row">
+    <a class="brand" href="#top">HAM-GMRS-RADIO</a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="bingo.html">BINGO</a>
+      <a href="#gmrs">GMRS</a>
+      <a href="#ham">HAM</a>
+      <a href="#mesh">MESH</a>
+      <a href="#links">LINKS</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- LCD hero panel -->
+  <section class="hero wrap" aria-label="Intro">
+    <div class="lcd" role="img" aria-label="Radio display showing 146.520 MHz, the 2 meter national simplex calling frequency">
+      <div class="lcd-row lcd-small">
+        <span>MEM 052</span>
+        <span>TONE OFF</span>
+        <span>PWR HIGH</span>
+        <span class="lcd-right"><span class="rx">RX</span> <span aria-hidden="true">&#9601;&#9603;&#9605;&#9607;</span></span>
+      </div>
+      <div class="lcd-freq">146.520</div>
+      <div class="lcd-row lcd-small">
+        <span>2M NATIONAL SIMPLEX CALLING</span>
+        <span class="lcd-right">FM &#183; NFM</span>
+      </div>
+    </div>
+    <p class="lede">
+      A plain field reference for ham radio, GMRS, and off-grid mesh networking.
+      The frequencies you key in, the licenses behind them, and the links worth
+      keeping. Nothing here is legal advice: verify against current FCC Part 95
+      and Part 97 rules before you transmit.
+    </p>
+    <p class="callout">
+      <a href="bingo.html">Net Bingo</a>: randomized cards of things that
+      actually happen on the net. Play online, print a stack, or download one.
+    </p>
+  </section>
+
+  <!-- GMRS -->
+  <section id="gmrs" class="wrap section">
+    <div class="section-head">
+      <h2>GMRS</h2>
+      <span class="range-tag">462 / 467 MHz</span>
+    </div>
+    <p class="section-note">
+      The General Mobile Radio Service shares its 22 channels with FRS. A GMRS
+      license costs $35, lasts 10 years, requires no exam, and covers your whole
+      immediate family. FRS use of the same channels needs no license at lower power.
+    </p>
+
+    <div class="table-scroll">
+      <table>
+        <caption class="visually-hidden">GMRS and FRS channel frequencies with maximum GMRS power</caption>
+        <thead>
+          <tr>
+            <th scope="col">CH</th>
+            <th scope="col">Frequency</th>
+            <th scope="col">GMRS max</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td class="freq">462.5625</td><td>5 W</td><td rowspan="7" class="note-cell">Shared FRS/GMRS interstitials. FRS limit 2 W.</td></tr>
+          <tr><td>2</td><td class="freq">462.5875</td><td>5 W</td></tr>
+          <tr><td>3</td><td class="freq">462.6125</td><td>5 W</td></tr>
+          <tr><td>4</td><td class="freq">462.6375</td><td>5 W</td></tr>
+          <tr><td>5</td><td class="freq">462.6625</td><td>5 W</td></tr>
+          <tr><td>6</td><td class="freq">462.6875</td><td>5 W</td></tr>
+          <tr><td>7</td><td class="freq">462.7125</td><td>5 W</td></tr>
+          <tr class="group"><td>8</td><td class="freq">467.5625</td><td>0.5 W</td><td rowspan="7" class="note-cell">Handheld only, narrowband, fixed antenna.</td></tr>
+          <tr><td>9</td><td class="freq">467.5875</td><td>0.5 W</td></tr>
+          <tr><td>10</td><td class="freq">467.6125</td><td>0.5 W</td></tr>
+          <tr><td>11</td><td class="freq">467.6375</td><td>0.5 W</td></tr>
+          <tr><td>12</td><td class="freq">467.6625</td><td>0.5 W</td></tr>
+          <tr><td>13</td><td class="freq">467.6875</td><td>0.5 W</td></tr>
+          <tr><td>14</td><td class="freq">467.7125</td><td>0.5 W</td></tr>
+          <tr class="group"><td>15</td><td class="freq">462.5500</td><td>50 W</td><td rowspan="8" class="note-cell">Main GMRS channels. Also the repeater outputs: input is +5 MHz (467 MHz).</td></tr>
+          <tr><td>16</td><td class="freq">462.5750</td><td>50 W</td></tr>
+          <tr><td>17</td><td class="freq">462.6000</td><td>50 W</td></tr>
+          <tr><td>18</td><td class="freq">462.6250</td><td>50 W</td></tr>
+          <tr><td>19</td><td class="freq">462.6500</td><td>50 W</td></tr>
+          <tr><td>20</td><td class="freq">462.6750</td><td>50 W</td></tr>
+          <tr><td>21</td><td class="freq">462.7000</td><td>50 W</td></tr>
+          <tr><td>22</td><td class="freq">462.7250</td><td>50 W</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fineprint">
+      Repeater use: transmit on the 467 MHz input, listen on the 462 MHz output,
+      with whatever tone the repeater owner publishes. Find repeaters and request
+      access on <a href="https://mygmrs.com">myGMRS</a>.
+    </p>
+  </section>
+
+  <!-- HAM -->
+  <section id="ham" class="wrap section">
+    <div class="section-head">
+      <h2>Ham quick reference</h2>
+      <span class="range-tag">144&ndash;148 / 420&ndash;450 MHz</span>
+    </div>
+    <p class="section-note">
+      The two bands nearly every new operator starts on. Both are fully open to
+      Technician class and above.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <h3><span class="band">2M</span> 144&ndash;148 MHz</h3>
+        <dl>
+          <div><dt>Simplex calling</dt><dd class="freq">146.520</dd></div>
+          <div><dt>Repeater offset</dt><dd class="freq">&plusmn;600 kHz</dd></div>
+          <div><dt>Mode</dt><dd>FM voice, plus SSB/CW low end</dd></div>
+        </dl>
+      </article>
+      <article class="card">
+        <h3><span class="band">70CM</span> 420&ndash;450 MHz</h3>
+        <dl>
+          <div><dt>Simplex calling</dt><dd class="freq">446.000</dd></div>
+          <div><dt>Repeater offset</dt><dd class="freq">&plusmn;5 MHz</dd></div>
+          <div><dt>Mode</dt><dd>FM voice, satellites, digital</dd></div>
+        </dl>
+      </article>
+      <article class="card">
+        <h3><span class="band">LIC</span> Getting licensed</h3>
+        <dl>
+          <div><dt>Technician</dt><dd>35 questions, all VHF/UHF privileges</dd></div>
+          <div><dt>General</dt><dd>adds most of HF</dd></div>
+          <div><dt>Extra</dt><dd>everything</dd></div>
+        </dl>
+        <p class="card-note">Free practice at <a href="https://hamstudy.org">HamStudy</a>. The question pools are public, so study the actual exam.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- MESH -->
+  <section id="mesh" class="wrap section">
+    <div class="section-head">
+      <h2>Mesh networks</h2>
+      <span class="range-tag">902&ndash;928 MHz ISM / 2.4 + 5.8 GHz</span>
+    </div>
+    <p class="section-note">
+      Two different worlds that both call themselves mesh. One is license-free
+      text messaging over LoRa, the other is licensed high-bandwidth IP networking
+      on repurposed WiFi gear.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <h3><span class="band">LORA</span> Meshtastic</h3>
+        <p>
+          Off-grid, encrypted text and position sharing between cheap LoRa nodes
+          (Heltec, RAK, LILYGO, around $30 each). Runs in the 902&ndash;928 MHz
+          ISM band in the US, so no license is required. Range is line-of-sight:
+          a node on a hill routes for everyone below it.
+        </p>
+        <p class="card-note"><a href="https://meshtastic.org">meshtastic.org</a></p>
+      </article>
+      <article class="card">
+        <h3><span class="band">AREDN</span> Amateur mesh</h3>
+        <p>
+          Ham-licensed data networking on modified WiFi hardware in the 2.4 and
+          5.8 GHz amateur allocations. Real IP bandwidth for cameras, VoIP, and
+          services between nodes. Requires at least a Technician license, and
+          Part 97 traffic cannot be encrypted.
+        </p>
+        <p class="card-note"><a href="https://www.arednmesh.org">arednmesh.org</a></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section id="links" class="wrap section">
+    <div class="section-head">
+      <h2>Links</h2>
+      <span class="range-tag">KEEP THESE</span>
+    </div>
+    <ul class="linklist">
+      <li><a href="https://www.repeaterbook.com">RepeaterBook</a><span>ham repeater directory, has a good app</span></li>
+      <li><a href="https://mygmrs.com">myGMRS</a><span>GMRS repeater directory and community</span></li>
+      <li><a href="https://hamstudy.org">HamStudy</a><span>free license exam practice</span></li>
+      <li><a href="https://www.arrl.org/band-plan">ARRL band plan</a><span>who goes where on every ham band</span></li>
+      <li><a href="https://meshtastic.org">Meshtastic docs</a><span>firmware, hardware list, setup guides</span></li>
+      <li><a href="https://meshmap.net">MeshMap</a><span>public map of reporting Meshtastic nodes</span></li>
+      <li><a href="https://chirpmyradio.com">CHIRP</a><span>free radio programming software</span></li>
+      <li><a href="https://www.radioreference.com">RadioReference</a><span>scanner frequencies and databases</span></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="wrap footer">
+  <span>HAMNEWBIE &middot; MIT license</span>
+  <a href="https://github.com/HAMNEWBIE/HAM-GMRS-Radio">Source on GitHub</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Net Bingo</title>
+<meta name="description" content="Randomized bingo cards of things that actually happen on ham, GMRS, and weather nets. Play online, print, or download.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="bingo.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%2310130C'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FFB000' font-family='monospace'>((</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-row">
+    <a class="brand" href="index.html">HAM-GMRS-RADIO</a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="bingo.html" aria-current="page">BINGO</a>
+      <a href="index.html#gmrs">GMRS</a>
+      <a href="index.html#ham">HAM</a>
+      <a href="index.html#mesh">MESH</a>
+      <a href="index.html#links">LINKS</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="bingo-intro">
+    <h1>Net Bingo</h1>
+    <p class="lede">
+      A randomized card of things that actually happen on the net. Mark squares
+      as you hear them. Five in a row wins. Share this page's URL and everyone
+      plays the same card, or hit New card for a fresh shuffle.
+    </p>
+  </div>
+
+  <form class="controls no-print" aria-label="Card options">
+    <div class="control-group">
+      <label for="deck">Net type</label>
+      <select id="deck">
+        <option value="ham">Ham net</option>
+        <option value="gmrs">GMRS net</option>
+        <option value="wx">SKYWARN / weather net</option>
+      </select>
+    </div>
+    <button type="button" id="new-card" class="btn btn-primary">New card</button>
+    <button type="button" id="print-card" class="btn">Print</button>
+    <button type="button" id="download-card" class="btn">Download PNG</button>
+    <button type="button" id="clear-marks" class="btn">Clear marks</button>
+    <button type="button" id="big-text" class="btn" aria-pressed="false">Bigger text</button>
+  </form>
+
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+
+  <div id="bingo-banner" class="bingo-banner" hidden>
+    <span class="bingo-word">BINGO</span>
+    <span class="bingo-sub">Five in a row. Claim it after the net closes.</span>
+  </div>
+
+  <section class="card-sheet" aria-label="Bingo card">
+    <div class="card-title-row">
+      <span class="card-title">NET BINGO</span>
+      <span class="card-meta"><span id="deck-label">Ham net</span> &middot; CARD <span id="card-id">000000</span></span>
+    </div>
+    <div class="col-heads" aria-hidden="true">
+      <span>R</span><span>A</span><span>D</span><span>I</span><span>O</span>
+    </div>
+    <div id="grid" class="grid" aria-label="Bingo squares, 5 by 5. Press a square to mark it."></div>
+    <p id="house-rules" class="house-rules"></p>
+  </section>
+
+  <section class="decoder">
+    <h2>Lingo decoder</h2>
+    <p class="section-note">What you just heard, for anyone new to the net.</p>
+    <dl class="decoder-list">
+      <div><dt>73</dt><dd>ham-speak for best regards, goodbye</dd></div>
+      <div><dt>QSL</dt><dd>received and understood (CW shorthand)</dd></div>
+      <div><dt>Double</dt><dd>two stations at once, both heard, neither understood</dd></div>
+      <div><dt>Kerchunk</dt><dd>keying up without IDing (don't)</dd></div>
+      <div><dt>Picket-fencing</dt><dd>signal flutter while moving</dd></div>
+      <div><dt>Elmer</dt><dd>a mentor ham</dd></div>
+      <div><dt>Net control</dt><dd>runs the net, follow their lead</dd></div>
+      <div><dt>Traffic</dt><dd>messages to pass; no traffic means just saying hi</dd></div>
+      <div><dt>SWR</dt><dd>antenna health; high is bad</dd></div>
+      <div><dt>Timeout timer</dt><dd>repeater cutoff for the long-winded</dd></div>
+    </dl>
+  </section>
+
+</main>
+
+<footer class="wrap footer no-print">
+  <span>HAMNEWBIE &middot; MIT license</span>
+  <a href="https://github.com/HAMNEWBIE/HAM-GMRS-Radio">Source on GitHub</a>
+</footer>
+
+<script src="bingo.js"></script>
+</body>
+</html>
