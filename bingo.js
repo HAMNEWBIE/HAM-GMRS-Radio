@@ -353,7 +353,7 @@
       : count + (count === 1 ? " square" : " squares") + " marked.";
   }
 
-  /* PNG download: draw the current card on a canvas at print resolution. */
+  /* Card image: draw the current card on a canvas at print resolution. */
   function wrapText(ctx, text, maxWidth) {
     var words = text.split(" ");
     var lines = [];
@@ -371,7 +371,7 @@
     return lines;
   }
 
-  function downloadPNG() {
+  function drawCard() {
     var W = 1275, H = 1650;
     var canvas = document.createElement("canvas");
     canvas.width = W; canvas.height = H;
@@ -474,11 +474,50 @@
       W / 2, footY + 12
     );
 
+    return canvas;
+  }
+
+  function cardFileName() {
+    return "Net_Bingo_" + state.deck + "_" + state.seed + ".png";
+  }
+
+  function downloadPNG() {
+    var canvas = drawCard();
     var a = document.createElement("a");
-    a.download = "Net_Bingo_" + state.deck + "_" + state.seed + ".png";
+    a.download = cardFileName();
     a.href = canvas.toDataURL("image/png");
     a.click();
     statusEl.textContent = "Card downloaded as " + a.download;
+  }
+
+  /* Share: native share sheet with the PNG where supported (most phones),
+     otherwise copy the card link. */
+  function shareFallback() {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+      statusEl.textContent = "Sharing isn't supported in this browser, so the card link was copied instead. For the image, use Download PNG.";
+    }, function () {
+      statusEl.textContent = "Sharing isn't supported in this browser. Use Download PNG and attach the image.";
+    });
+  }
+
+  function shareCard() {
+    var canvas = drawCard();
+    canvas.toBlob(function (blob) {
+      var file = new File([blob], cardFileName(), { type: "image/png" });
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator.share({
+          files: [file],
+          title: "Net Bingo",
+          text: "Net Bingo card " + state.seed + " (" + DECKS[state.deck].label + ")"
+        }).then(function () {
+          statusEl.textContent = "Card shared.";
+        }).catch(function (err) {
+          if (!err || err.name !== "AbortError") shareFallback();
+        });
+      } else {
+        shareFallback();
+      }
+    }, "image/png");
   }
 
   /* Wire up controls */
@@ -497,6 +536,8 @@
   });
 
   document.getElementById("download-card").addEventListener("click", downloadPNG);
+
+  document.getElementById("share-card").addEventListener("click", shareCard);
 
   document.getElementById("clear-marks").addEventListener("click", function () {
     state.marks = state.cells.map(function (_, i) { return i === FREE_INDEX; });
