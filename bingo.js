@@ -414,19 +414,19 @@
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, W, H);
 
-    ctx.fillStyle = "#10130c";
+    ctx.fillStyle = "#3a2a1d";
     ctx.fillRect(0, 0, W, 150);
-    ctx.fillStyle = "#ffb000";
-    ctx.font = "600 58px 'IBM Plex Mono', monospace";
+    ctx.fillStyle = "#ff9d3c";
+    ctx.font = "600 58px 'Share Tech Mono', monospace";
     ctx.textAlign = "center";
     ctx.fillText("N E T   B I N G O", W / 2, 78);
-    ctx.font = "400 26px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "rgba(255,176,0,0.65)";
+    ctx.font = "400 26px 'Share Tech Mono', monospace";
+    ctx.fillStyle = "rgba(255,157,60,0.75)";
     ctx.fillText(deck.label + "  ·  card " + state.seed + "  ·  five in a row wins", W / 2, 122);
 
     var M = 60, TOP = 210, SIZE = (W - 2 * M) / 5, RH = 220;
-    ctx.fillStyle = "#55604b";
-    ctx.font = "700 40px 'Barlow Condensed', sans-serif";
+    ctx.fillStyle = "#6b5b45";
+    ctx.font = "700 40px Michroma, sans-serif";
     "RADIO".split("").forEach(function (ch, i) {
       ctx.fillText(ch, M + SIZE * i + SIZE / 2, TOP - 18);
     });
@@ -437,22 +437,22 @@
       var marked = state.marks[i];
       var free = i === FREE_INDEX;
 
-      ctx.fillStyle = free ? "#fdf3e0" : marked ? "#fbe3d6" : "#ffffff";
+      ctx.fillStyle = free ? "#f7e6c4" : marked ? "#f4d9bf" : "#ffffff";
       ctx.fillRect(x, y, SIZE, RH);
-      ctx.strokeStyle = "#171b16";
+      ctx.strokeStyle = "#2e241a";
       ctx.lineWidth = 2;
       ctx.strokeRect(x, y, SIZE, RH);
 
-      ctx.fillStyle = "#171b16";
+      ctx.fillStyle = "#2e241a";
       var fs = free ? 32 : 26;
-      ctx.font = (free ? "600 " : "400 ") + fs + "px Barlow, sans-serif";
+      ctx.font = (free ? "600 " : "400 ") + fs + "px Archivo, sans-serif";
       var lines = [];
       text.split("\n").forEach(function (part) {
         lines = lines.concat(wrapText(ctx, part, SIZE - 26));
       });
       while (lines.length * (fs + 6) > RH - 20 && fs > 15) {
         fs -= 1;
-        ctx.font = "400 " + fs + "px Barlow, sans-serif";
+        ctx.font = "400 " + fs + "px Archivo, sans-serif";
         lines = [];
         text.split("\n").forEach(function (part) {
           lines = lines.concat(wrapText(ctx, part, SIZE - 26));
@@ -466,7 +466,7 @@
       });
 
       if (marked && !free) {
-        ctx.strokeStyle = "rgba(225,78,14,0.75)";
+        ctx.strokeStyle = "rgba(217, 100, 30, 0.8)";
         ctx.lineWidth = 8;
         ctx.beginPath();
         ctx.moveTo(x + 22, y + 22);
@@ -478,7 +478,7 @@
     });
 
     var wins = winningLines();
-    ctx.strokeStyle = "rgba(225, 78, 14, 0.85)";
+    ctx.strokeStyle = "rgba(217, 100, 30, 0.9)";
     ctx.lineWidth = 14;
     ctx.lineCap = "round";
     wins.forEach(function (line) {
@@ -489,16 +489,16 @@
       ctx.stroke();
     });
 
-    ctx.fillStyle = "#55604b";
-    ctx.font = "italic 22px Barlow, sans-serif";
+    ctx.fillStyle = "#6b5b45";
+    ctx.font = "italic 22px Archivo, sans-serif";
     var footY = TOP + RH * 5 + 60;
     wrapText(ctx, deck.house, W - 2 * M).forEach(function (ln) {
       ctx.fillText(ln, W / 2, footY);
       footY += 28;
     });
 
-    ctx.font = "500 22px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#171b16";
+    ctx.font = "500 22px 'Share Tech Mono', monospace";
+    ctx.fillStyle = "#2e241a";
     var count = state.marks.filter(Boolean).length - 1;
     ctx.fillText(
       "card " + state.seed + " · " + count + " marked" +
@@ -507,8 +507,8 @@
       W / 2, footY + 12
     );
 
-    ctx.font = "500 20px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#55604b";
+    ctx.font = "500 20px 'Share Tech Mono', monospace";
+    ctx.fillStyle = "#6b5b45";
     ctx.fillText(sponsorText(), W / 2, footY + 48);
 
     return canvas;

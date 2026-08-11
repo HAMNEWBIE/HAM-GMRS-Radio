@@ -1,15 +1,25 @@
-/* HAM-GMRS-Radio field reference
-   Palette: spec-sheet paper, olive ink, blaze orange, LCD amber on panel black */
+/* amrad field reference
+   1950s-70s bench tech: walnut cabinets, cream panels, burnt orange and
+   harvest gold silk-screen, glowing tube digits. Readability first. */
 
 :root {
-  --paper: #e9ece4;
-  --ink: #171b16;
-  --muted: #55604b;
-  --line: #c3cab8;
-  --orange: #e14e0e;
-  --panel: #10130c;
-  --amber: #ffb000;
-  --amber-dim: rgba(255, 176, 0, 0.45);
+  --paper: #f1e8d2;
+  --panel-cream: #f7efdd;
+  --ink: #2e241a;
+  --muted: #6b5b45;
+  --line: #c9b896;
+  --orange: #d9641e;
+  --gold: #d8a03d;
+  --avocado: #6e7040;
+  --walnut: #3a2a1d;
+  --walnut-lt: #4a3626;
+  --glass: #16100a;
+  --nixie: #ff9d3c;
+  --nixie-dim: rgba(255, 157, 60, 0.45);
+  /* legacy aliases used by bingo.css */
+  --panel: #16100a;
+  --amber: #ff9d3c;
+  --amber-dim: rgba(255, 157, 60, 0.45);
 }
 
 * { box-sizing: border-box; }
@@ -19,8 +29,15 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--paper);
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(122, 96, 60, 0.035) 0px,
+    rgba(122, 96, 60, 0.035) 1px,
+    transparent 1px,
+    transparent 4px
+  );
   color: var(--ink);
-  font-family: "Barlow", system-ui, sans-serif;
+  font-family: "Archivo", system-ui, sans-serif;
   font-size: 17px;
   line-height: 1.55;
 }
@@ -36,7 +53,7 @@ a { color: var(--orange); text-decoration-thickness: 1px; text-underline-offset:
 a:hover { color: var(--ink); }
 
 :focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 3px solid var(--orange);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -50,16 +67,18 @@ a:hover { color: var(--ink); }
   white-space: nowrap;
 }
 
-/* Top bar */
+/* Top bar: brushed aluminum faceplate with a power lamp */
 
 .topbar {
-  border-bottom: 1px solid var(--line);
-  background: var(--paper);
+  background: linear-gradient(180deg, #edebe3 0%, #d6d2c6 100%);
+  background-blend-mode: multiply;
+  border-bottom: 4px solid var(--walnut);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .topbar-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding-top: 14px;
@@ -67,55 +86,73 @@ a:hover { color: var(--ink); }
 }
 
 .brand {
-  font-family: "IBM Plex Mono", monospace;
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Michroma", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
   color: var(--ink);
   text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.brand::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffc37e, var(--orange) 70%);
+  box-shadow: 0 0 6px rgba(217, 100, 30, 0.8), inset 0 0 2px rgba(0, 0, 0, 0.4);
+  flex: none;
 }
 
 .topnav {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .topnav a {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.8rem;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.85rem;
   letter-spacing: 0.12em;
   color: var(--muted);
   text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .topnav a:hover { color: var(--orange); }
 
-/* LCD hero */
+/* Hero: tube frequency counter in a walnut cabinet */
 
 .hero { padding-top: 40px; }
 
-/* Styled after the blue-backlit dual-frequency screen on a certain
-   ubiquitous Chinese handheld. Dark segments on lit glass. */
 .lcd {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(160deg, #3a5ce0 0%, #2e4bc4 55%, #2843b0 100%);
-  border: 12px solid #191b1e;
-  border-radius: 14px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 157, 60, 0.08), transparent 60%),
+    var(--glass);
+  border: 14px solid var(--walnut);
+  border-radius: 12px;
   box-shadow:
-    inset 0 2px 14px rgba(10, 18, 60, 0.55),
-    0 2px 6px rgba(0, 0, 0, 0.25);
-  padding: 16px 24px 18px;
-  color: #0a1440;
-  font-family: "IBM Plex Mono", monospace;
+    inset 0 2px 16px rgba(0, 0, 0, 0.8),
+    0 1px 0 rgba(255, 255, 255, 0.4),
+    0 3px 10px rgba(46, 36, 26, 0.35);
+  padding: 18px 26px 20px;
+  color: var(--nixie);
+  font-family: "Share Tech Mono", monospace;
 }
 
-.lcd::after {
+.lcd::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(115deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 28%, transparent 45%);
+  border: 2px solid var(--walnut-lt);
+  border-radius: 2px;
   pointer-events: none;
+  opacity: 0.6;
 }
 
 .lcd-row {
@@ -125,10 +162,9 @@ a:hover { color: var(--ink); }
 }
 
 .lcd-small {
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  color: rgba(10, 20, 64, 0.6);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  color: var(--nixie-dim);
 }
 
 .lcd-right { margin-left: auto; }
@@ -137,27 +173,29 @@ a:hover { color: var(--ink); }
   display: flex;
   align-items: baseline;
   gap: 14px;
-  line-height: 1.15;
+  line-height: 1.12;
 }
 
 .lcd-arrow {
   width: 0.8em;
   flex: none;
   font-size: clamp(1.1rem, 3vw, 1.8rem);
+  color: var(--nixie-dim);
 }
 
 .lcd-freq {
   font-size: clamp(2.6rem, 8.5vw, 4.6rem);
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   font-variant-numeric: tabular-nums;
+  text-shadow:
+    0 0 10px rgba(255, 157, 60, 0.55),
+    0 0 30px rgba(255, 120, 20, 0.25);
 }
 
 .lcd-ch {
   margin-left: auto;
   font-size: clamp(1rem, 2.6vw, 1.5rem);
-  font-weight: 500;
-  color: rgba(10, 20, 64, 0.75);
+  color: var(--nixie-dim);
 }
 
 .lede {
@@ -172,42 +210,59 @@ a:hover { color: var(--ink); }
   margin: 18px 0 0;
   padding: 12px 16px;
   border: 1px solid var(--line);
-  border-left: 3px solid var(--orange);
-  border-radius: 0 6px 6px 0;
-  background: #f2f4ee;
+  border-left: 4px solid var(--orange);
+  border-radius: 0 8px 8px 0;
+  background: var(--panel-cream);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
   font-size: 0.98rem;
 }
 
-/* Sections */
+/* Sections: silk-screened panel labels with the two-stripe motif */
 
 .section { padding-top: 64px; }
 
 .section-head {
+  position: relative;
   display: flex;
   align-items: baseline;
   gap: 16px;
   flex-wrap: wrap;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 8px;
+  padding-bottom: 12px;
+}
+
+.section-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background: linear-gradient(
+    180deg,
+    var(--orange) 0 3px,
+    transparent 3px 5px,
+    var(--gold) 5px 8px
+  );
 }
 
 .section-head h2 {
   margin: 0;
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  font-size: 2.1rem;
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
 }
 
 .range-tag {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   color: var(--paper);
-  background: var(--muted);
-  padding: 3px 9px;
+  background: var(--walnut);
+  padding: 4px 10px;
   border-radius: 3px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(255, 255, 255, 0.5);
   white-space: nowrap;
 }
 
@@ -228,14 +283,14 @@ table {
 }
 
 th {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-align: left;
   color: var(--muted);
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
   padding: 6px 14px 6px 0;
 }
 
@@ -248,8 +303,7 @@ td {
 tr.group td { border-top: 2px solid var(--ink); }
 
 .freq {
-  font-family: "IBM Plex Mono", monospace;
-  font-weight: 500;
+  font-family: "Share Tech Mono", monospace;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -267,7 +321,7 @@ tr.group td { border-top: 2px solid var(--ink); }
   margin-top: 18px;
 }
 
-/* Cards */
+/* Cards: control-panel modules */
 
 .cards {
   display: grid;
@@ -276,17 +330,20 @@ tr.group td { border-top: 2px solid var(--ink); }
 }
 
 .card {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #f2f4ee;
+  border: 1px solid #a08a63;
+  border-radius: 10px;
+  background: var(--panel-cream);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 2px 0 rgba(122, 96, 60, 0.25);
   padding: 18px 20px;
 }
 
 .card h3 {
   margin: 0 0 12px;
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 600;
-  font-size: 1.25rem;
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
   letter-spacing: 0.02em;
   display: flex;
   align-items: center;
@@ -294,14 +351,14 @@ tr.group td { border-top: 2px solid var(--ink); }
 }
 
 .band {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.68rem;
-  font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--paper);
-  background: var(--orange);
-  padding: 2px 7px;
+  color: #fff;
+  background: linear-gradient(180deg, #e8792f, var(--orange));
+  padding: 3px 8px;
   border-radius: 3px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card p { margin: 0 0 10px; font-size: 0.95rem; }
@@ -342,14 +399,14 @@ tr.group td { border-top: 2px solid var(--ink); }
 }
 
 .linklist a {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.9rem;
   white-space: nowrap;
 }
 
 .linklist span { color: var(--muted); font-size: 0.9rem; }
 
-/* Footer */
+/* Footer: walnut base */
 
 .footer {
   display: flex;
@@ -359,8 +416,8 @@ tr.group td { border-top: 2px solid var(--ink); }
   margin-top: 72px;
   padding-top: 20px;
   padding-bottom: 40px;
-  border-top: 1px solid var(--line);
-  font-family: "IBM Plex Mono", monospace;
+  border-top: 4px solid var(--walnut);
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.8rem;
   color: var(--muted);
 }
@@ -373,6 +430,7 @@ tr.group td { border-top: 2px solid var(--ink); }
 
 @media (max-width: 560px) {
   .topbar-row { flex-direction: column; gap: 8px; align-items: flex-start; }
-  .lcd { padding: 16px 18px 18px; }
+  .lcd { padding: 14px 16px 16px; border-width: 10px; }
   .lcd-row { gap: 14px; }
+  .section-head h2 { font-size: 1.2rem; }
 }

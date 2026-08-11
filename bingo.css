@@ -1,17 +1,18 @@
-/* Net Bingo page styles. Builds on style.css tokens. */
+/* Net Bingo page styles. Builds on style.css tokens: walnut, cream,
+   burnt orange, harvest gold, tube-glow orange on dark glass. */
 
 .bingo-intro { padding-top: 40px; }
 
 .bingo-intro h1 {
   margin: 0 0 10px;
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  font-size: 2.6rem;
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
 }
 
-/* Controls */
+/* Controls: console keys */
 
 .controls {
   display: flex;
@@ -28,106 +29,125 @@
 }
 
 .control-group label {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.72rem;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
 .control-group select {
-  font-family: "Barlow", sans-serif;
+  font-family: "Archivo", sans-serif;
   font-size: 1rem;
   padding: 9px 10px;
-  border: 1px solid var(--muted);
+  border: 1px solid #8a7757;
   border-radius: 6px;
-  background: #fff;
+  background: #fbf6ea;
   color: var(--ink);
+  box-shadow: inset 0 1px 3px rgba(74, 54, 38, 0.2);
 }
 
 .btn {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
   padding: 10px 16px;
-  border: 1px solid var(--ink);
-  border-radius: 6px;
-  background: #f2f4ee;
+  border: 1px solid #8a7757;
+  border-radius: 7px;
+  background: linear-gradient(180deg, #f7f1e2, #ddd0b4);
   color: var(--ink);
   cursor: pointer;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 2px 0 rgba(74, 54, 38, 0.35);
+  text-decoration: none;
+  display: inline-block;
 }
 
-.btn:hover { background: #fff; }
+.btn:hover { background: linear-gradient(180deg, #fdf9ef, #e6dabf); }
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 1px 0 rgba(74, 54, 38, 0.35);
+}
 
 .btn[aria-pressed="true"] {
-  background: var(--ink);
+  background: var(--walnut);
   color: var(--paper);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .btn-primary {
-  background: var(--orange);
-  border-color: var(--orange);
+  background: linear-gradient(180deg, #ea7a30, var(--orange));
+  border-color: #a34712;
   color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 
-.btn-primary:hover { background: #c84509; border-color: #c84509; color: #fff; }
+.btn-primary:hover { background: linear-gradient(180deg, #f28a42, #e06a22); color: #fff; }
 
 .status {
   min-height: 1.4em;
   margin: 6px 0 12px;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.85rem;
   color: var(--muted);
 }
 
-/* Bingo banner */
+/* Bingo banner: lit glass window */
 
 .bingo-banner[hidden] { display: none; }
 
 .bingo-banner {
-  background: var(--panel);
-  color: var(--amber);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 157, 60, 0.1), transparent 60%),
+    var(--glass);
+  border: 6px solid var(--walnut);
+  color: var(--nixie);
   border-radius: 10px;
-  padding: 16px 24px;
+  padding: 14px 22px;
   margin-bottom: 16px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 18px;
   flex-wrap: wrap;
 }
 
 .bingo-word {
-  font-family: "IBM Plex Mono", monospace;
-  font-weight: 600;
+  font-family: "Share Tech Mono", monospace;
   font-size: 2rem;
   letter-spacing: 0.3em;
-  text-shadow: 0 0 16px rgba(255, 176, 0, 0.4);
+  text-shadow: 0 0 12px rgba(255, 157, 60, 0.6), 0 0 34px rgba(255, 120, 20, 0.3);
 }
 
 .bingo-sub {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.85rem;
-  color: var(--amber-dim);
+  color: var(--nixie-dim);
 }
 
 .btn-banner {
   margin-left: auto;
   background: transparent;
-  border-color: var(--amber);
-  color: var(--amber);
+  border-color: var(--nixie);
+  color: var(--nixie);
+  box-shadow: none;
 }
 
 .btn-banner:hover {
-  background: var(--amber);
-  color: var(--panel);
+  background: var(--nixie);
+  color: var(--glass);
 }
 
-/* Card */
+/* Card: a sheet clipped to the cream panel */
 
 .card-sheet {
-  background: #fff;
+  background: #fbf6ea;
   border: 2px solid var(--ink);
   border-radius: 10px;
+  box-shadow: 0 2px 0 rgba(122, 96, 60, 0.3);
   padding: 20px 20px 16px;
   margin-bottom: 40px;
 }
@@ -138,18 +158,17 @@
   align-items: baseline;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .card-title {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  font-size: 1.6rem;
-  letter-spacing: 0.24em;
+  font-family: "Michroma", sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.18em;
 }
 
 .card-meta {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   color: var(--muted);
@@ -157,11 +176,10 @@
 }
 
 .sponsor-line {
-  margin: -4px 0 10px;
+  margin: 0 0 10px;
   text-align: center;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.72rem;
-  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
@@ -189,10 +207,10 @@
 
 .col-heads span {
   text-align: center;
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: var(--muted);
+  font-family: "Michroma", sans-serif;
+  font-size: 1.05rem;
+  color: var(--gold);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .grid {
@@ -207,11 +225,11 @@
   overflow-wrap: break-word;
   min-height: 108px;
   padding: 10px 8px;
-  border: 1px solid var(--muted);
+  border: 1px solid #8a7757;
   border-radius: 6px;
   background: #fff;
   color: var(--ink);
-  font-family: "Barlow", sans-serif;
+  font-family: "Archivo", sans-serif;
   font-size: 1.12rem;
   line-height: 1.3;
   text-align: center;
@@ -219,12 +237,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .cell:hover { border-color: var(--ink); }
 
 .cell[aria-pressed="true"] {
-  background: #fbe3d6;
+  background: #f4d9bf;
   box-shadow: inset 0 0 0 2px var(--orange);
 }
 
@@ -233,20 +252,20 @@
   position: absolute;
   inset: 10px;
   background:
-    linear-gradient(to top right, transparent 47.5%, rgba(225, 78, 14, 0.55) 48.5%, rgba(225, 78, 14, 0.55) 51.5%, transparent 52.5%),
-    linear-gradient(to top left, transparent 47.5%, rgba(225, 78, 14, 0.55) 48.5%, rgba(225, 78, 14, 0.55) 51.5%, transparent 52.5%);
+    linear-gradient(to top right, transparent 47.5%, rgba(217, 100, 30, 0.6) 48.5%, rgba(217, 100, 30, 0.6) 51.5%, transparent 52.5%),
+    linear-gradient(to top left, transparent 47.5%, rgba(217, 100, 30, 0.6) 48.5%, rgba(217, 100, 30, 0.6) 51.5%, transparent 52.5%);
   pointer-events: none;
 }
 
 .cell-free {
-  background: #fdf3e0;
+  background: #f7e6c4;
   font-weight: 600;
 }
 
 .cell-free[aria-pressed="true"] { box-shadow: none; }
 .cell-free[aria-pressed="true"]::after { display: none; }
 
-body.bigtext .cell { font-size: 1.25rem; min-height: 140px; }
+body.bigtext .cell { font-size: 1.35rem; min-height: 140px; }
 body.bigtext .lede, body.bigtext .house-rules { font-size: 1.2rem; }
 
 .house-rules {
@@ -256,72 +275,47 @@ body.bigtext .lede, body.bigtext .house-rules { font-size: 1.2rem; }
   color: var(--muted);
 }
 
-/* Decoder */
-
-.decoder { margin-bottom: 40px; }
-
-.decoder h2 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  font-size: 1.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 6px;
-  margin: 0 0 6px;
-}
-
-.decoder-list {
-  margin: 0;
-  columns: 2;
-  column-gap: 40px;
-  max-width: 760px;
-}
-
-.decoder-list div {
-  break-inside: avoid;
-  display: flex;
-  gap: 10px;
-  padding: 5px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.decoder-list dt {
-  font-family: "IBM Plex Mono", monospace;
-  font-weight: 600;
-  font-size: 0.85rem;
-  min-width: 110px;
-}
-
-.decoder-list dd { margin: 0; font-size: 0.9rem; color: var(--muted); }
-
-@media (max-width: 640px) {
-  .decoder-list { columns: 1; }
-  .cell { min-height: 88px; font-size: 0.85rem; padding: 6px 4px; }
-  body.bigtext .cell { font-size: 1rem; min-height: 108px; }
-}
-
 /* Net control script section */
 
 .script-section { margin-bottom: 40px; }
 
-.script-section h2 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  font-size: 1.7rem;
+.script-section h2,
+.embed-section h2,
+.decoder h2 {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-size: 1.25rem;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 6px;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding-bottom: 12px;
   margin: 0 0 6px;
+}
+
+.script-section h2::after,
+.embed-section h2::after,
+.decoder h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background: linear-gradient(
+    180deg,
+    var(--orange) 0 3px,
+    transparent 3px 5px,
+    var(--gold) 5px 8px
+  );
 }
 
 .net-script {
   max-width: 680px;
   border: 1px solid var(--line);
-  border-left: 3px solid var(--orange);
+  border-left: 4px solid var(--orange);
   border-radius: 0 8px 8px 0;
-  background: #f2f4ee;
+  background: var(--panel-cream);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
   padding: 6px 22px;
   margin-bottom: 12px;
 }
@@ -340,30 +334,20 @@ body.bigtext .lede, body.bigtext .house-rules { font-size: 1.2rem; }
 }
 
 .verify-form input {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 1rem;
   width: 9em;
   padding: 9px 10px;
-  border: 1px solid var(--muted);
+  border: 1px solid #8a7757;
   border-radius: 6px;
-  background: #fff;
+  background: #fbf6ea;
   color: var(--ink);
+  box-shadow: inset 0 1px 3px rgba(74, 54, 38, 0.2);
 }
 
 /* Embed snippet section */
 
 .embed-section { margin-bottom: 40px; }
-
-.embed-section h2 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  font-size: 1.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 6px;
-  margin: 0 0 6px;
-}
 
 .embed-steps {
   max-width: 640px;
@@ -377,9 +361,12 @@ body.bigtext .lede, body.bigtext .house-rules { font-size: 1.2rem; }
 }
 
 .embed-code {
-  background: var(--panel);
-  color: var(--amber);
-  font-family: "IBM Plex Mono", monospace;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 157, 60, 0.08), transparent 60%),
+    var(--glass);
+  border: 4px solid var(--walnut);
+  color: var(--nixie);
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.8rem;
   line-height: 1.5;
   padding: 14px 16px;
@@ -388,7 +375,7 @@ body.bigtext .lede, body.bigtext .house-rules { font-size: 1.2rem; }
   margin: 0 0 10px;
 }
 
-.embed-section code { font-family: "IBM Plex Mono", monospace; }
+.embed-section code { font-family: "Share Tech Mono", monospace; }
 
 /* Embed mode: just the controls and the card, for iframes */
 
@@ -407,6 +394,40 @@ body.embed main.wrap {
 
 body.embed .controls { margin-top: 8px; }
 
+/* Decoder */
+
+.decoder { margin-bottom: 40px; }
+
+.decoder-list {
+  margin: 0;
+  columns: 2;
+  column-gap: 40px;
+  max-width: 760px;
+}
+
+.decoder-list div {
+  break-inside: avoid;
+  display: flex;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.decoder-list dt {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.85rem;
+  min-width: 110px;
+}
+
+.decoder-list dd { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+@media (max-width: 640px) {
+  .decoder-list { columns: 1; }
+  .cell { min-height: 88px; font-size: 0.95rem; padding: 6px 4px; }
+  body.bigtext .cell { font-size: 1.1rem; min-height: 108px; }
+  .bingo-intro h1 { font-size: 1.5rem; }
+}
+
 /* Print: just the card, ink-friendly */
 
 @media print {
@@ -417,6 +438,7 @@ body.embed .controls { margin-top: 8px; }
   .card-sheet {
     border-radius: 0;
     border-width: 2px;
+    box-shadow: none;
     margin: 0;
     padding: 12px;
   }
@@ -424,6 +446,7 @@ body.embed .controls { margin-top: 8px; }
     border-radius: 0;
     min-height: 118px;
     font-size: 0.95rem;
+    box-shadow: none;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
