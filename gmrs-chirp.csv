@@ -1,0 +1,32 @@
+Location,Name,Frequency,Duplex,Offset,Tone,rToneFreq,cToneFreq,DtcsCode,DtcsPolarity,Mode,TStep,Skip,Comment
+1,GMRS 1,462.562500,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Shared FRS/GMRS interstitial - GMRS 5 W
+2,GMRS 2,462.587500,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Shared FRS/GMRS interstitial - GMRS 5 W
+3,GMRS 3,462.612500,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Shared FRS/GMRS interstitial - GMRS 5 W
+4,GMRS 4,462.637500,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Shared FRS/GMRS interstitial - GMRS 5 W
+5,GMRS 5,462.662500,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Shared FRS/GMRS interstitial - GMRS 5 W
+6,GMRS 6,462.687500,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Shared FRS/GMRS interstitial - GMRS 5 W
+7,GMRS 7,462.712500,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Shared FRS/GMRS interstitial - GMRS 5 W
+8,GMRS 8,467.562500,,0.000000,,88.5,88.5,023,NN,NFM,5.00,,Handheld only - 0.5 W - narrowband - fixed antenna
+9,GMRS 9,467.587500,,0.000000,,88.5,88.5,023,NN,NFM,5.00,,Handheld only - 0.5 W - narrowband - fixed antenna
+10,GMRS 10,467.612500,,0.000000,,88.5,88.5,023,NN,NFM,5.00,,Handheld only - 0.5 W - narrowband - fixed antenna
+11,GMRS 11,467.637500,,0.000000,,88.5,88.5,023,NN,NFM,5.00,,Handheld only - 0.5 W - narrowband - fixed antenna
+12,GMRS 12,467.662500,,0.000000,,88.5,88.5,023,NN,NFM,5.00,,Handheld only - 0.5 W - narrowband - fixed antenna
+13,GMRS 13,467.687500,,0.000000,,88.5,88.5,023,NN,NFM,5.00,,Handheld only - 0.5 W - narrowband - fixed antenna
+14,GMRS 14,467.712500,,0.000000,,88.5,88.5,023,NN,NFM,5.00,,Handheld only - 0.5 W - narrowband - fixed antenna
+15,GMRS 15,462.550000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Main GMRS channel - 50 W
+16,GMRS 16,462.575000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Main GMRS channel - 50 W
+17,GMRS 17,462.600000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Main GMRS channel - 50 W
+18,GMRS 18,462.625000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Main GMRS channel - 50 W
+19,GMRS 19,462.650000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Main GMRS channel - 50 W
+20,GMRS 20,462.675000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Main GMRS channel - 50 W - travel/emergency by convention
+21,GMRS 21,462.700000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Main GMRS channel - 50 W
+22,GMRS 22,462.725000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,Main GMRS channel - 50 W
+23,LONGHAUL,462.675000,,0.000000,TSQL,141.3,141.3,023,NN,FM,5.00,,Project LongHaul - ch 20 with 141.3 tone on TX and RX
+24,RPT 15,462.550000,+,5.000000,Tone,141.3,141.3,023,NN,FM,5.00,,Repeater - set tone to what the owner publishes
+25,RPT 16,462.575000,+,5.000000,Tone,141.3,141.3,023,NN,FM,5.00,,Repeater - set tone to what the owner publishes
+26,RPT 17,462.600000,+,5.000000,Tone,141.3,141.3,023,NN,FM,5.00,,Repeater - set tone to what the owner publishes
+27,RPT 18,462.625000,+,5.000000,Tone,141.3,141.3,023,NN,FM,5.00,,Repeater - set tone to what the owner publishes
+28,RPT 19,462.650000,+,5.000000,Tone,141.3,141.3,023,NN,FM,5.00,,Repeater - set tone to what the owner publishes
+29,RPT 20,462.675000,+,5.000000,Tone,141.3,141.3,023,NN,FM,5.00,,Repeater - set tone to what the owner publishes
+30,RPT 21,462.700000,+,5.000000,Tone,141.3,141.3,023,NN,FM,5.00,,Repeater - set tone to what the owner publishes
+31,RPT 22,462.725000,+,5.000000,Tone,141.3,141.3,023,NN,FM,5.00,,Repeater - set tone to what the owner publishes

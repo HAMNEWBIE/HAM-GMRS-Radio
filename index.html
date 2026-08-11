@@ -5,11 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HAM / GMRS / Mesh Field Reference</title>
 <meta name="description" content="A plain field reference for ham radio, GMRS, and mesh networking. Frequencies, license paths, and links.">
+<meta name="theme-color" content="#3a2a1d">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Michroma&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%233A2A1D'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FF9D3C' font-family='monospace'>((</text></svg>">
+<script>
+  // Set the theme before first paint so night mode never flashes cream.
+  try {
+    var t = localStorage.getItem("amrad-theme");
+    if (t === "night") document.documentElement.setAttribute("data-theme", "night");
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -18,11 +27,17 @@
     <a class="brand" href="#top">HAM-GMRS-RADIO</a>
     <nav class="topnav" aria-label="Sections">
       <a href="bingo.html">BINGO</a>
+      <a href="#start">START</a>
       <a href="#gmrs">GMRS</a>
+      <a href="#services">SERVICES</a>
       <a href="#ham">HAM</a>
+      <a href="#tones">TONES</a>
       <a href="#mesh">MESH</a>
       <a href="#links">LINKS</a>
     </nav>
+    <button class="night-toggle" type="button" id="night-toggle" aria-pressed="false">
+      <span class="night-lamp" aria-hidden="true"></span>NIGHT
+    </button>
   </div>
 </header>
 
@@ -66,12 +81,57 @@
     </p>
   </section>
 
+  <!-- FIRST TWENTY MINUTES -->
+  <section id="start" class="wrap section">
+    <div class="section-head">
+      <h2>First twenty minutes</h2>
+      <span class="range-tag">RADIO STILL IN THE BOX</span>
+    </div>
+    <p class="section-note">
+      If you have a handheld and no idea where to start, do these five things
+      in this order. Everything else on this page is lookup.
+    </p>
+    <ol class="steps">
+      <li>
+        <h3>Antenna on before battery in</h3>
+        <p>Transmitting with no antenna attached can damage the final amplifier on a
+        cheap handheld. Screw it down first, every time.</p>
+      </li>
+      <li>
+        <h3>Listen for a week before you decide the hobby is dead</h3>
+        <p>Program three memories and leave it scanning in the truck: 462.675 for
+        GMRS channel 20, 146.520 for 2&nbsp;m calling, and whichever NOAA
+        channel is strong where you live.</p>
+      </li>
+      <li>
+        <h3>Find out what is actually within reach</h3>
+        <p><a href="https://www.repeaterbook.com">RepeaterBook</a> for ham,
+        <a href="https://mygmrs.com">myGMRS</a> for GMRS. Write down the output
+        frequency, the offset, and the tone. Those three numbers are the entire
+        configuration.</p>
+      </li>
+      <li>
+        <h3>Program from a file, not the keypad</h3>
+        <p>Install <a href="https://chirpmyradio.com">CHIRP</a>, load one of the
+        <a href="#program">CSVs below</a>, upload once. Hand-keying thirty
+        memories is how wrong tones get in.</p>
+      </li>
+      <li>
+        <h3>Make one contact</h3>
+        <p>On a repeater, give your callsign and the word listening. Not CQ. On
+        GMRS channel 20, call at 8 or 11 Eastern with your call and your county,
+        then wait a full minute before giving up.</p>
+      </li>
+    </ol>
+  </section>
+
   <!-- GMRS -->
   <section id="gmrs" class="wrap section">
     <div class="section-head">
       <h2>GMRS</h2>
       <span class="range-tag">462 / 467 MHz</span>
     </div>
+    <p class="stamp">Checked against 47&nbsp;CFR Part&nbsp;95 subpart&nbsp;E on 10 Aug 2026</p>
     <p class="section-note">
       The General Mobile Radio Service shares its 22 channels with FRS. A GMRS
       license costs $35, lasts 10 years, requires no exam, and covers your whole
@@ -80,38 +140,39 @@
 
     <div class="table-scroll">
       <table>
-        <caption class="visually-hidden">GMRS and FRS channel frequencies with maximum GMRS power</caption>
+        <caption class="visually-hidden">GMRS and FRS channel frequencies, repeater inputs, and maximum GMRS power</caption>
         <thead>
           <tr>
             <th scope="col">CH</th>
-            <th scope="col">Frequency</th>
+            <th scope="col">Output / simplex</th>
+            <th scope="col">Repeater input</th>
             <th scope="col">GMRS max</th>
             <th scope="col">Notes</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td class="freq">462.5625</td><td>5 W</td><td rowspan="7" class="note-cell">Shared FRS/GMRS interstitials. FRS limit 2 W.</td></tr>
-          <tr><td>2</td><td class="freq">462.5875</td><td>5 W</td></tr>
-          <tr><td>3</td><td class="freq">462.6125</td><td>5 W</td></tr>
-          <tr><td>4</td><td class="freq">462.6375</td><td>5 W</td></tr>
-          <tr><td>5</td><td class="freq">462.6625</td><td>5 W</td></tr>
-          <tr><td>6</td><td class="freq">462.6875</td><td>5 W</td></tr>
-          <tr><td>7</td><td class="freq">462.7125</td><td>5 W</td></tr>
-          <tr class="group"><td>8</td><td class="freq">467.5625</td><td>0.5 W</td><td rowspan="7" class="note-cell">Handheld only, narrowband, fixed antenna.</td></tr>
-          <tr><td>9</td><td class="freq">467.5875</td><td>0.5 W</td></tr>
-          <tr><td>10</td><td class="freq">467.6125</td><td>0.5 W</td></tr>
-          <tr><td>11</td><td class="freq">467.6375</td><td>0.5 W</td></tr>
-          <tr><td>12</td><td class="freq">467.6625</td><td>0.5 W</td></tr>
-          <tr><td>13</td><td class="freq">467.6875</td><td>0.5 W</td></tr>
-          <tr><td>14</td><td class="freq">467.7125</td><td>0.5 W</td></tr>
-          <tr class="group"><td>15</td><td class="freq">462.5500</td><td>50 W</td><td rowspan="8" class="note-cell">Main GMRS channels. Also the repeater outputs: input is +5 MHz (467 MHz).</td></tr>
-          <tr><td>16</td><td class="freq">462.5750</td><td>50 W</td></tr>
-          <tr><td>17</td><td class="freq">462.6000</td><td>50 W</td></tr>
-          <tr><td>18</td><td class="freq">462.6250</td><td>50 W</td></tr>
-          <tr><td>19</td><td class="freq">462.6500</td><td>50 W</td></tr>
-          <tr><td>20</td><td class="freq">462.6750</td><td>50 W</td></tr>
-          <tr><td>21</td><td class="freq">462.7000</td><td>50 W</td></tr>
-          <tr><td>22</td><td class="freq">462.7250</td><td>50 W</td></tr>
+          <tr><td>1</td><td class="freq">462.5625</td><td class="freq dim">&mdash;</td><td>5 W</td><td rowspan="7" class="note-cell">Shared FRS/GMRS interstitials. FRS limit 2 W. Simplex only.</td></tr>
+          <tr><td>2</td><td class="freq">462.5875</td><td class="freq dim">&mdash;</td><td>5 W</td></tr>
+          <tr><td>3</td><td class="freq">462.6125</td><td class="freq dim">&mdash;</td><td>5 W</td></tr>
+          <tr><td>4</td><td class="freq">462.6375</td><td class="freq dim">&mdash;</td><td>5 W</td></tr>
+          <tr><td>5</td><td class="freq">462.6625</td><td class="freq dim">&mdash;</td><td>5 W</td></tr>
+          <tr><td>6</td><td class="freq">462.6875</td><td class="freq dim">&mdash;</td><td>5 W</td></tr>
+          <tr><td>7</td><td class="freq">462.7125</td><td class="freq dim">&mdash;</td><td>5 W</td></tr>
+          <tr class="group"><td>8</td><td class="freq">467.5625</td><td class="freq dim">&mdash;</td><td>0.5 W</td><td rowspan="7" class="note-cell">Handheld only, narrowband, fixed antenna. These are the 467 interstitials, not repeater inputs.</td></tr>
+          <tr><td>9</td><td class="freq">467.5875</td><td class="freq dim">&mdash;</td><td>0.5 W</td></tr>
+          <tr><td>10</td><td class="freq">467.6125</td><td class="freq dim">&mdash;</td><td>0.5 W</td></tr>
+          <tr><td>11</td><td class="freq">467.6375</td><td class="freq dim">&mdash;</td><td>0.5 W</td></tr>
+          <tr><td>12</td><td class="freq">467.6625</td><td class="freq dim">&mdash;</td><td>0.5 W</td></tr>
+          <tr><td>13</td><td class="freq">467.6875</td><td class="freq dim">&mdash;</td><td>0.5 W</td></tr>
+          <tr><td>14</td><td class="freq">467.7125</td><td class="freq dim">&mdash;</td><td>0.5 W</td></tr>
+          <tr class="group"><td>15</td><td class="freq">462.5500</td><td class="freq">467.5500</td><td>50 W</td><td rowspan="8" class="note-cell">Main GMRS channels, and the repeater outputs. Input is always the same channel +5 MHz.</td></tr>
+          <tr><td>16</td><td class="freq">462.5750</td><td class="freq">467.5750</td><td>50 W</td></tr>
+          <tr><td>17</td><td class="freq">462.6000</td><td class="freq">467.6000</td><td>50 W</td></tr>
+          <tr><td>18</td><td class="freq">462.6250</td><td class="freq">467.6250</td><td>50 W</td></tr>
+          <tr><td>19</td><td class="freq">462.6500</td><td class="freq">467.6500</td><td>50 W</td></tr>
+          <tr><td>20</td><td class="freq">462.6750</td><td class="freq">467.6750</td><td>50 W</td></tr>
+          <tr><td>21</td><td class="freq">462.7000</td><td class="freq">467.7000</td><td>50 W</td></tr>
+          <tr><td>22</td><td class="freq">462.7250</td><td class="freq">467.7250</td><td>50 W</td></tr>
         </tbody>
       </table>
     </div>
@@ -127,6 +188,62 @@
       morning or evening Eastern, plus 2 PM and 2 AM, and see who answers.
       That's the channel on the B line of the radio up top.
     </p>
+
+    <h3 class="sub-head" id="program">Program it</h3>
+    <p class="fineprint">
+      CHIRP-ready CSVs. Import, check the mode column against your radio, upload.
+      Tones are placeholders except where noted: set the real tone from the
+      repeater listing.
+    </p>
+    <div class="downloads">
+      <a class="download" href="gmrs-chirp.csv" download>
+        <span class="dl-name">gmrs-chirp.csv</span>
+        <span class="dl-note">31 memories: channels 1&ndash;22, the eight repeater pairs, and a LongHaul memory with 141.3 on both ends.</span>
+      </a>
+      <a class="download" href="ham-starter-chirp.csv" download>
+        <span class="dl-name">ham-starter-chirp.csv</span>
+        <span class="dl-note">22 memories: national simplex calling frequencies, the seven NOAA weather channels, and MURS.</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="wrap section">
+    <div class="section-head">
+      <h2>Services side by side</h2>
+      <span class="range-tag">WHAT YOU MAY USE</span>
+    </div>
+    <p class="section-note">
+      Where the license-free options run out, and what the $35 buys. Power
+      figures are the legal ceiling, not what your radio does.
+    </p>
+    <div class="table-scroll">
+      <table>
+        <caption class="visually-hidden">Comparison of FRS, GMRS, MURS, NOAA weather radio, and amateur Technician privileges</caption>
+        <thead>
+          <tr>
+            <th scope="col">Service</th>
+            <th scope="col">Band</th>
+            <th scope="col">License</th>
+            <th scope="col">Max power</th>
+            <th scope="col">Antenna</th>
+            <th scope="col">Repeaters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>FRS</td><td class="freq">462 / 467</td><td>none</td><td>2 W, 0.5 W on 8&ndash;14</td><td class="note-cell">fixed, non-removable</td><td>no</td></tr>
+          <tr><td>GMRS</td><td class="freq">462 / 467</td><td>$35 / 10 yr, no exam, covers family</td><td>50 W</td><td class="note-cell">any, external allowed</td><td>yes, +5 MHz input</td></tr>
+          <tr><td>MURS</td><td class="freq">151 / 154</td><td>none</td><td>2 W</td><td class="note-cell">external allowed, 60 ft above ground or structure</td><td>no</td></tr>
+          <tr><td>NOAA WX</td><td class="freq">162.400&ndash;162.550</td><td>receive only</td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">&mdash;</td></tr>
+          <tr><td>Ham, Technician</td><td class="freq">VHF / UHF, some HF</td><td>$35 FCC fee plus a 35-question exam</td><td>1500 W PEP</td><td class="note-cell">any</td><td>yes, thousands</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fineprint">
+      The seven NOAA channels are 162.400, 162.425, 162.450, 162.475, 162.500,
+      162.525 and 162.550. Nearly every handheld receives them, and only one or
+      two will be usable from any given spot.
+    </p>
   </section>
 
   <!-- HAM -->
@@ -135,6 +252,7 @@
       <h2>Ham quick reference</h2>
       <span class="range-tag">144&ndash;148 / 420&ndash;450 MHz</span>
     </div>
+    <p class="stamp">Checked against 47&nbsp;CFR Part&nbsp;97 on 10 Aug 2026</p>
     <p class="section-note">
       The two bands nearly every new operator starts on. Both are fully open to
       Technician class and above.
@@ -146,6 +264,7 @@
         <dl>
           <div><dt>Simplex calling</dt><dd class="freq">146.520</dd></div>
           <div><dt>Repeater offset</dt><dd class="freq">&plusmn;600 kHz</dd></div>
+          <div><dt>Other simplex</dt><dd class="freq">146.550 &middot; 146.580</dd></div>
           <div><dt>Mode</dt><dd>FM voice, plus SSB/CW low end</dd></div>
         </dl>
       </article>
@@ -154,8 +273,18 @@
         <dl>
           <div><dt>Simplex calling</dt><dd class="freq">446.000</dd></div>
           <div><dt>Repeater offset</dt><dd class="freq">&plusmn;5 MHz</dd></div>
+          <div><dt>Other simplex</dt><dd class="freq">446.500</dd></div>
           <div><dt>Mode</dt><dd>FM voice, satellites, digital</dd></div>
         </dl>
+      </article>
+      <article class="card">
+        <h3><span class="band">ALSO</span> Worth programming</h3>
+        <dl>
+          <div><dt>6 m FM calling</dt><dd class="freq">52.525</dd></div>
+          <div><dt>1.25 m calling</dt><dd class="freq">223.500</dd></div>
+          <div><dt>NOAA weather</dt><dd class="freq">162.400&ndash;162.550</dd></div>
+        </dl>
+        <p class="card-note">The 1.25 m band is quiet and cheap to get on, which is exactly why the people who are on it answer.</p>
       </article>
       <article class="card">
         <h3><span class="band">LIC</span> Getting licensed</h3>
@@ -163,8 +292,66 @@
           <div><dt>Technician</dt><dd>35 questions, all VHF/UHF privileges</dd></div>
           <div><dt>General</dt><dd>adds most of HF</dd></div>
           <div><dt>Extra</dt><dd>everything</dd></div>
+          <div><dt>Cost</dt><dd>$35 FCC fee, 10 years, plus exam session fee</dd></div>
         </dl>
         <p class="card-note">Free practice at <a href="https://hamstudy.org">HamStudy</a>. The question pools are public, so study the actual exam.</p>
+      </article>
+      <article class="card">
+        <h3><span class="band">OPS</span> How to be heard</h3>
+        <dl>
+          <div><dt>Calling</dt><dd>callsign, then listening</dd></div>
+          <div><dt>Joining</dt><dd>your callsign in the gap, nothing else</dd></div>
+          <div><dt>Pause</dt><dd>one second after keying up</dd></div>
+        </dl>
+        <p class="card-note">Repeaters have a courtesy tone and a timeout. Leave a beat between transmissions so someone can break in, and let the tail drop.</p>
+      </article>
+      <article class="card">
+        <h3><span class="band">FIX</span> When nobody answers</h3>
+        <dl>
+          <div><dt>1</dt><dd>tone mode, TONE not TSQL</dd></div>
+          <div><dt>2</dt><dd>tone value matches the listing</dd></div>
+          <div><dt>3</dt><dd>offset direction, plus or minus</dd></div>
+          <div><dt>4</dt><dd>you are on the output, not the input</dd></div>
+        </dl>
+        <p class="card-note">In that order. It is almost never the antenna. See <a href="#tones">tones</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TONES -->
+  <section id="tones" class="wrap section">
+    <div class="section-head">
+      <h2>Tones</h2>
+      <span class="range-tag">CTCSS / DCS</span>
+    </div>
+    <p class="section-note">
+      The most common reason a new operator transmits and nobody answers. Both
+      GMRS repeaters and Project LongHaul depend on getting this right.
+    </p>
+    <div class="cards">
+      <article class="card">
+        <h3><span class="band">CTCSS</span> Also called PL or tone</h3>
+        <p>A steady sub-audible tone sent underneath your voice. A repeater
+        listens for it and ignores anything arriving without it. 141.3 is
+        just one of roughly fifty standard tones.</p>
+      </article>
+      <article class="card">
+        <h3><span class="band">DCS</span> Also called DPL or code</h3>
+        <p>The digital equivalent, a code instead of a tone. Same job. A radio
+        set to DCS will not open a CTCSS system and the reverse is also true,
+        so match whatever the owner publishes exactly.</p>
+      </article>
+      <article class="card">
+        <h3><span class="band">MODE</span> TONE vs TSQL</h3>
+        <p>TONE sends on transmit only, so you still hear everything on the
+        channel. TSQL also mutes your receiver unless the incoming tone
+        matches. Repeaters want TONE. LongHaul wants TSQL, 141.3 on both ends.</p>
+      </article>
+      <article class="card">
+        <h3><span class="band">NOTE</span> What a tone is not</h3>
+        <p>It is not privacy and it is not encryption. Anyone scanning without
+        a tone set hears you. The FRS &ldquo;privacy codes&rdquo; on a blister-pack
+        radio are these same tones, renamed.</p>
       </article>
     </div>
   </section>
@@ -216,6 +403,36 @@
         <p class="card-note"><a href="https://www.arednmesh.org">arednmesh.org</a></p>
       </article>
     </div>
+
+    <h3 class="sub-head">Getting a LoRa node on the air</h3>
+    <ol class="steps steps-tight">
+      <li>
+        <h3>Attach the antenna before you power it</h3>
+        <p>Same rule as a handheld, and easier to forget on a bare board that
+        looks harmless.</p>
+      </li>
+      <li>
+        <h3>Flash it, then set the region</h3>
+        <p>US on 902&ndash;928 MHz. Wrong region means wrong frequency and a node
+        that hears nothing while appearing to work perfectly.</p>
+      </li>
+      <li>
+        <h3>Match the radio preset, not just the channel name</h3>
+        <p>Spreading factor and bandwidth have to agree across the mesh. Two
+        nodes on the same named channel with different presets are deaf to
+        each other.</p>
+      </li>
+      <li>
+        <h3>Get height before you get power</h3>
+        <p>It is line-of-sight. A node in a window beats a node on a desk by
+        more than any antenna upgrade will.</p>
+      </li>
+      <li>
+        <h3>Find out who is already up</h3>
+        <p>Ask locally before you plan a repeater. One node on a hill that
+        somebody already owns changes what you need to build.</p>
+      </li>
+    </ol>
   </section>
 
   <!-- LINKS -->
@@ -234,6 +451,8 @@
       <li><a href="https://meshtastic.org">Meshtastic docs</a><span>the other LoRa mesh, for comparison</span></li>
       <li><a href="https://chirpmyradio.com">CHIRP</a><span>free radio programming software</span></li>
       <li><a href="https://www.radioreference.com">RadioReference</a><span>scanner frequencies and databases</span></li>
+      <li><a href="https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-95">FCC Part 95</a><span>the GMRS, FRS and MURS rules themselves</span></li>
+      <li><a href="https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-97">FCC Part 97</a><span>the amateur service rules themselves</span></li>
     </ul>
   </section>
 
@@ -241,8 +460,42 @@
 
 <footer class="wrap footer">
   <span>WSNJ234 &middot; MIT license</span>
+  <span class="footer-stamp">Frequencies and fees checked 10 Aug 2026 &middot; works offline once loaded</span>
   <a href="https://github.com/WSNJ234/amrad">Source on GitHub</a>
 </footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("night-toggle");
+    var on = root.getAttribute("data-theme") === "night";
+    btn.setAttribute("aria-pressed", String(on));
+    btn.addEventListener("click", function () {
+      on = !on;
+      if (on) root.setAttribute("data-theme", "night");
+      else root.removeAttribute("data-theme");
+      btn.setAttribute("aria-pressed", String(on));
+      try { localStorage.setItem("amrad-theme", on ? "night" : "day"); } catch (e) {}
+    });
+
+    // Tap any frequency to copy it.
+    document.addEventListener("click", function (e) {
+      var cell = e.target.closest(".freq");
+      if (!cell || cell.classList.contains("dim")) return;
+      var text = cell.textContent.trim();
+      if (!/^[\d.]/.test(text)) return;
+      if (navigator.clipboard) navigator.clipboard.writeText(text);
+      cell.classList.add("copied");
+      setTimeout(function () { cell.classList.remove("copied"); }, 900);
+    });
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").catch(function () {});
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>

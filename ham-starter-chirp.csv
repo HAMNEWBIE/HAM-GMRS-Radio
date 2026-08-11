@@ -1,0 +1,23 @@
+Location,Name,Frequency,Duplex,Offset,Tone,rToneFreq,cToneFreq,DtcsCode,DtcsPolarity,Mode,TStep,Skip,Comment
+1,2M CALL,146.520000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,2 m national simplex calling
+2,2M SPX1,146.550000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,2 m FM simplex
+3,2M SPX2,146.580000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,2 m FM simplex
+4,2M SPX3,147.420000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,2 m FM simplex
+5,2M SPX4,147.570000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,2 m FM simplex
+6,70CM CAL,446.000000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,70 cm national simplex calling
+7,70CM SPX,446.500000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,70 cm FM simplex
+8,125 CALL,223.500000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,1.25 m national simplex calling
+9,6M CALL,52.525000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,6 m FM calling
+10,SAT V UP,145.990000,,0.000000,Tone,67.0,67.0,023,NN,FM,5.00,,ISS packet / example satellite uplink
+11,WX1,162.550000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,NOAA weather - receive only
+12,WX2,162.400000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,NOAA weather - receive only
+13,WX3,162.475000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,NOAA weather - receive only
+14,WX4,162.425000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,NOAA weather - receive only
+15,WX5,162.450000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,NOAA weather - receive only
+16,WX6,162.500000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,NOAA weather - receive only
+17,WX7,162.525000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,NOAA weather - receive only
+18,MURS 1,151.820000,,0.000000,,88.5,88.5,023,NN,NFM,5.00,,MURS - license free - 2 W - narrowband
+19,MURS 2,151.880000,,0.000000,,88.5,88.5,023,NN,NFM,5.00,,MURS - license free - 2 W - narrowband
+20,MURS 3,151.940000,,0.000000,,88.5,88.5,023,NN,NFM,5.00,,MURS - license free - 2 W - narrowband
+21,MURS 4,154.570000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,MURS - license free - 2 W - blue dot
+22,MURS 5,154.600000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,MURS - license free - 2 W - green dot

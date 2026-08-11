@@ -1,0 +1,19 @@
+{
+  "name": "HAM / GMRS / Mesh Field Reference",
+  "short_name": "AMRAD",
+  "description": "A plain field reference for ham radio, GMRS, and mesh networking.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f1e8d2",
+  "theme_color": "#3a2a1d",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

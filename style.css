@@ -20,6 +20,45 @@
   --panel: #16100a;
   --amber: #ff9d3c;
   --amber-dim: rgba(255, 157, 60, 0.45);
+  --grain: rgba(122, 96, 60, 0.035);
+  --topbar-a: #edebe3;
+  --topbar-b: #d6d2c6;
+  --emboss: rgba(255, 255, 255, 0.7);
+  --card-edge: #a08a63;
+  /* Ink used on top of walnut or avocado chrome */
+  --on-dark: #f1e8d2;
+  --chrome-seam: rgba(255, 255, 255, 0.5);
+  --chrome-seam-in: rgba(255, 255, 255, 0.15);
+}
+
+/* Night mode: red on near-black, for reading in the dark without
+   losing night vision. Same layout, different lamp. */
+[data-theme="night"] {
+  --paper: #0b0503;
+  --panel-cream: #170a06;
+  --ink: #ff7a52;
+  --muted: #c05633;
+  --line: #4a1c10;
+  --orange: #ff8a5c;
+  --gold: #d9603a;
+  --walnut: #240d07;
+  --walnut-lt: #35150c;
+  --glass: #0b0503;
+  --nixie: #ff7a52;
+  --nixie-dim: rgba(255, 122, 82, 0.45);
+  --panel: #0b0503;
+  --amber: #ff7a52;
+  --amber-dim: rgba(255, 122, 82, 0.45);
+  --grain: rgba(255, 122, 82, 0.03);
+  --topbar-a: #1c0a06;
+  --topbar-b: #120704;
+  --emboss: rgba(255, 122, 82, 0.12);
+  --card-edge: #4a1c10;
+  --on-dark: #ff7a52;
+  --chrome-seam: rgba(255, 122, 82, 0.18);
+  --chrome-seam-in: rgba(255, 122, 82, 0.12);
+  --avocado: #7a3a22;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -31,8 +70,8 @@ body {
   background: var(--paper);
   background-image: repeating-linear-gradient(
     90deg,
-    rgba(122, 96, 60, 0.035) 0px,
-    rgba(122, 96, 60, 0.035) 1px,
+    var(--grain) 0px,
+    var(--grain) 1px,
     transparent 1px,
     transparent 4px
   );
@@ -70,7 +109,7 @@ a:hover { color: var(--ink); }
 /* Top bar: brushed aluminum faceplate with a power lamp */
 
 .topbar {
-  background: linear-gradient(180deg, #edebe3 0%, #d6d2c6 100%);
+  background: linear-gradient(180deg, var(--topbar-a) 0%, var(--topbar-b) 100%);
   background-blend-mode: multiply;
   border-bottom: 4px solid var(--walnut);
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5);
@@ -94,7 +133,9 @@ a:hover { color: var(--ink); }
   letter-spacing: 0.12em;
   color: var(--ink);
   text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  flex: none;
+  text-shadow: 0 1px 0 var(--emboss);
 }
 
 .brand::before {
@@ -119,10 +160,46 @@ a:hover { color: var(--ink); }
   letter-spacing: 0.12em;
   color: var(--muted);
   text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  text-shadow: 0 1px 0 var(--emboss);
 }
 
 .topnav a:hover { color: var(--orange); }
+
+/* Night mode switch: a panel toggle, not a web control */
+
+.night-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  background: linear-gradient(180deg, var(--panel-cream), var(--topbar-b));
+  border: 1px solid var(--card-edge);
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 var(--emboss), 0 1px 0 rgba(122, 96, 60, 0.3);
+}
+
+.night-toggle:hover { color: var(--orange); }
+
+.night-lamp {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8b7a5e;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.night-toggle[aria-pressed="true"] { color: var(--orange); }
+
+.night-toggle[aria-pressed="true"] .night-lamp {
+  background: radial-gradient(circle at 35% 35%, #ffc37e, var(--orange) 70%);
+  box-shadow: 0 0 6px rgba(217, 100, 30, 0.9);
+}
 
 /* Hero: tube frequency counter in a walnut cabinet */
 
@@ -213,7 +290,7 @@ a:hover { color: var(--ink); }
   border-left: 4px solid var(--orange);
   border-radius: 0 8px 8px 0;
   background: var(--panel-cream);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 1px 0 var(--emboss);
   font-size: 0.98rem;
 }
 
@@ -258,11 +335,11 @@ a:hover { color: var(--ink); }
   font-family: "Share Tech Mono", monospace;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
-  color: var(--paper);
+  color: var(--on-dark);
   background: var(--walnut);
   padding: 4px 10px;
   border-radius: 3px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 var(--chrome-seam-in), 0 1px 0 var(--chrome-seam);
   white-space: nowrap;
 }
 
@@ -271,6 +348,128 @@ a:hover { color: var(--ink); }
   color: var(--muted);
   margin: 14px 0 24px;
 }
+
+/* Verified-on stamp */
+
+.stamp {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 14px 0 0;
+}
+
+.stamp::before {
+  content: "\2713\00a0\00a0";
+  color: var(--avocado);
+}
+
+[data-theme="night"] .stamp::before { color: var(--muted); }
+
+.stamp + .section-note { margin-top: 8px; }
+
+/* Sub-heads inside a section */
+
+.sub-head {
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  margin: 40px 0 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+  max-width: 640px;
+}
+
+/* Numbered procedure */
+
+.steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 0;
+  padding: 0;
+  max-width: 720px;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 16px 0 16px 62px;
+  border-bottom: 1px solid var(--line);
+}
+
+.steps li:last-child { border-bottom: 0; }
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1.05rem;
+  color: var(--on-dark);
+  background: var(--walnut);
+  border-radius: 50%;
+  box-shadow: inset 0 1px 0 var(--chrome-seam-in);
+}
+
+.steps li h3 {
+  margin: 0 0 6px;
+  font-family: "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+
+.steps li p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.steps-tight { margin-top: 8px; }
+
+/* Download cards */
+
+.downloads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+  max-width: 720px;
+}
+
+.download {
+  display: block;
+  padding: 16px 18px;
+  border: 1px solid var(--card-edge);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 8px 8px 0;
+  background: var(--panel-cream);
+  box-shadow: inset 0 1px 0 var(--emboss), 0 2px 0 rgba(122, 96, 60, 0.25);
+  text-decoration: none;
+}
+
+.download:hover { border-color: var(--orange); }
+
+.dl-name {
+  display: block;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.95rem;
+  color: var(--orange);
+}
+
+.dl-name::before { content: "\2193\00a0\00a0"; }
+
+.dl-note {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.download:hover .dl-name { color: var(--ink); }
 
 /* Tables */
 
@@ -308,6 +507,22 @@ tr.group td { border-top: 2px solid var(--ink); }
   white-space: nowrap;
 }
 
+/* Tap a frequency to copy it */
+
+td.freq:not(.dim) {
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+td.freq:not(.dim):hover { color: var(--orange); }
+
+td.freq.copied {
+  color: var(--on-dark);
+  background: var(--avocado);
+}
+
+.dim { color: var(--muted); }
+
 .note-cell {
   color: var(--muted);
   font-size: 0.88rem;
@@ -330,11 +545,11 @@ tr.group td { border-top: 2px solid var(--ink); }
 }
 
 .card {
-  border: 1px solid #a08a63;
+  border: 1px solid var(--card-edge);
   border-radius: 10px;
   background: var(--panel-cream);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 1px 0 var(--emboss),
     0 2px 0 rgba(122, 96, 60, 0.25);
   padding: 18px 20px;
 }
@@ -360,6 +575,8 @@ tr.group td { border-top: 2px solid var(--ink); }
   border-radius: 3px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 1px 0 rgba(0, 0, 0, 0.2);
 }
+
+[data-theme="night"] .band { color: #1a0703; }
 
 .card p { margin: 0 0 10px; font-size: 0.95rem; }
 
@@ -422,15 +639,109 @@ tr.group td { border-top: 2px solid var(--ink); }
   color: var(--muted);
 }
 
+.footer-stamp { flex: 1 1 auto; text-align: center; }
+
 /* Motion and small screens */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 760px) {
   .topbar-row { flex-direction: column; gap: 8px; align-items: flex-start; }
+}
+
+@media (max-width: 560px) {
   .lcd { padding: 14px 16px 16px; border-width: 10px; }
   .lcd-row { gap: 14px; }
   .section-head h2 { font-size: 1.2rem; }
+  .steps li { padding-left: 52px; }
+  .steps li::before { width: 32px; height: 32px; font-size: 0.95rem; }
+  .footer-stamp { text-align: left; }
+}
+
+/* Print: the channel table on one sheet, ink you can afford */
+
+@media print {
+  @page { margin: 14mm; }
+
+  html { scroll-behavior: auto; }
+
+  body {
+    background: #fff;
+    background-image: none;
+    color: #000;
+    font-size: 10.5pt;
+    line-height: 1.4;
+  }
+
+  .topbar, .night-toggle, .topnav, .callout, .downloads { display: none; }
+
+  .wrap { max-width: none; padding: 0; }
+
+  .hero { padding-top: 0; }
+
+  .lcd {
+    border: 1.5pt solid #000;
+    border-radius: 0;
+    box-shadow: none;
+    background: #fff;
+    color: #000;
+    padding: 8pt 12pt;
+  }
+
+  .lcd-freq { font-size: 24pt; text-shadow: none; }
+  .lcd-small, .lcd-ch, .lcd-arrow { color: #444; }
+
+  .section { padding-top: 20pt; break-inside: avoid; }
+
+  .section-head::after {
+    background: #000;
+    height: 2pt;
+  }
+
+  .range-tag {
+    color: #000;
+    background: none;
+    border: 0.5pt solid #000;
+    box-shadow: none;
+  }
+
+  .card, .steps li, .table-scroll { break-inside: avoid; }
+
+  .card {
+    border: 0.5pt solid #666;
+    border-radius: 0;
+    box-shadow: none;
+    background: #fff;
+  }
+
+  .band {
+    color: #000;
+    background: none;
+    border: 0.5pt solid #000;
+    box-shadow: none;
+  }
+
+  .steps li::before {
+    color: #000;
+    background: none;
+    border: 0.5pt solid #000;
+    box-shadow: none;
+  }
+
+  .table-scroll { overflow: visible; }
+
+  thead { display: table-header-group; }
+
+  a { color: #000; text-decoration: none; }
+
+  .linklist a::after {
+    content: " " attr(href);
+    font-size: 8pt;
+    color: #444;
+    word-break: break-all;
+  }
+
+  .footer { margin-top: 20pt; border-top: 1pt solid #000; }
 }
