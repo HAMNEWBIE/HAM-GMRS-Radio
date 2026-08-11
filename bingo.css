@@ -280,6 +280,17 @@ body.bigtext .lede, body.bigtext .house-rules { font-size: 1.2rem; }
   margin: 0 0 6px;
 }
 
+.embed-steps {
+  max-width: 640px;
+  margin: 0 0 16px;
+  padding-left: 22px;
+}
+
+.embed-steps li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
 .embed-code {
   background: var(--panel);
   color: var(--amber);

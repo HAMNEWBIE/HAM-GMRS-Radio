@@ -210,8 +210,16 @@
     history.replaceState(null, "", url.toString());
   }
 
+  function updateEmbedSnippet() {
+    var code = document.getElementById("embed-code");
+    if (code) {
+      code.textContent = code.textContent.replace(/deck=[a-z]+/, "deck=" + state.deck);
+    }
+  }
+
   function render() {
     var deck = DECKS[state.deck];
+    updateEmbedSnippet();
     deckSelect.value = state.deck;
     deckLabelEl.textContent = deck.label;
     cardIdEl.textContent = String(state.seed);

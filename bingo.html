@@ -76,14 +76,29 @@
   <section class="embed-section no-print">
     <h2>Embed this on your site</h2>
     <p class="section-note">
-      Paste this into any web page to get a live, playable card. Add
-      <code>&amp;deck=gmrs</code> or <code>&amp;deck=wx</code> to pick the deck,
-      and <code>&amp;seed=123456</code> if everyone should get the same card.
-      Leave the seed off for a fresh card on every load.
+      Put a live, playable card on your club page, blog, or personal site.
+      No account, no key, nothing to install.
     </p>
+    <ol class="embed-steps">
+      <li>Pick the net type above. The code below follows your choice.</li>
+      <li>Press <strong>Copy embed code</strong>.</li>
+      <li>Paste it into your page's HTML. On WordPress use a Custom HTML
+        block; on most other site builders look for an HTML or Embed block.
+        If you edit raw HTML files, paste it wherever the card should appear.</li>
+      <li>Publish. Visitors get a playable card right on your page.</li>
+    </ol>
     <pre class="embed-code"><code id="embed-code">&lt;iframe src="https://hamnewbie.github.io/HAM-GMRS-Radio/bingo.html?embed=1&amp;deck=ham"
   width="100%" height="980" style="border:0" title="Net Bingo"&gt;&lt;/iframe&gt;</code></pre>
     <button type="button" id="copy-embed" class="btn">Copy embed code</button>
+    <p class="fineprint">
+      Tweaks: every visitor gets a fresh shuffle by default. To hand everyone
+      the identical card (one card per net night), add
+      <code>&amp;seed=123456</code> inside the src, using any number you like:
+      same number, same card. Change <code>deck=ham</code> to
+      <code>deck=gmrs</code> or <code>deck=wx</code> by hand if you prefer.
+      If the card gets cut off on your page, raise the
+      <code>height</code> number.
+    </p>
   </section>
 
   <section class="decoder">
