@@ -94,20 +94,28 @@ a:hover { color: var(--ink); }
 
 .hero { padding-top: 40px; }
 
+/* Styled after the blue-backlit dual-frequency screen on a certain
+   ubiquitous Chinese handheld. Dark segments on lit glass. */
 .lcd {
-  background: var(--panel);
-  background-image: repeating-linear-gradient(
-    0deg,
-    rgba(255, 176, 0, 0.03) 0px,
-    rgba(255, 176, 0, 0.03) 1px,
-    transparent 1px,
-    transparent 3px
-  );
-  border-radius: 10px;
-  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.5);
-  padding: 22px 28px 24px;
-  color: var(--amber);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #3a5ce0 0%, #2e4bc4 55%, #2843b0 100%);
+  border: 12px solid #191b1e;
+  border-radius: 14px;
+  box-shadow:
+    inset 0 2px 14px rgba(10, 18, 60, 0.55),
+    0 2px 6px rgba(0, 0, 0, 0.25);
+  padding: 16px 24px 18px;
+  color: #0a1440;
   font-family: "IBM Plex Mono", monospace;
+}
+
+.lcd::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 28%, transparent 45%);
+  pointer-events: none;
 }
 
 .lcd-row {
@@ -118,26 +126,38 @@ a:hover { color: var(--ink); }
 
 .lcd-small {
   font-size: 0.78rem;
+  font-weight: 500;
   letter-spacing: 0.14em;
-  color: var(--amber-dim);
+  color: rgba(10, 20, 64, 0.6);
 }
 
 .lcd-right { margin-left: auto; }
 
-.lcd .rx { color: var(--amber); animation: rxblink 2.4s steps(1) infinite; }
+.lcd-vfo {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  line-height: 1.15;
+}
 
-@keyframes rxblink {
-  0%, 70% { opacity: 1; }
-  70.01%, 100% { opacity: 0.25; }
+.lcd-arrow {
+  width: 0.8em;
+  flex: none;
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
 }
 
 .lcd-freq {
-  font-size: clamp(3.4rem, 11vw, 6.5rem);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: 0.02em;
-  text-shadow: 0 0 18px rgba(255, 176, 0, 0.35);
+  font-size: clamp(2.6rem, 8.5vw, 4.6rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
+}
+
+.lcd-ch {
+  margin-left: auto;
+  font-size: clamp(1rem, 2.6vw, 1.5rem);
+  font-weight: 500;
+  color: rgba(10, 20, 64, 0.75);
 }
 
 .lede {
@@ -349,7 +369,6 @@ tr.group td { border-top: 2px solid var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .lcd .rx { animation: none; }
 }
 
 @media (max-width: 560px) {

@@ -30,17 +30,26 @@
 
   <!-- LCD hero panel -->
   <section class="hero wrap" aria-label="Intro">
-    <div class="lcd" role="img" aria-label="Radio display showing 146.520 MHz, the 2 meter national simplex calling frequency">
+    <div class="lcd" role="img" aria-label="Handheld radio display showing two frequencies: 146.520, the 2 meter national simplex calling frequency, and 462.675, GMRS channel 20">
       <div class="lcd-row lcd-small">
-        <span>MEM 052</span>
-        <span>TONE OFF</span>
-        <span>PWR HIGH</span>
-        <span class="lcd-right"><span class="rx">RX</span> <span aria-hidden="true">&#9601;&#9603;&#9605;&#9607;</span></span>
+        <span aria-hidden="true">&#9602;&#9604;&#9606;&#9608;</span>
+        <span>CT 141.3</span>
+        <span>N</span>
+        <span class="lcd-right" aria-hidden="true">&#9646;&#9646;&#9646;&#9647;</span>
       </div>
-      <div class="lcd-freq">146.520</div>
+      <div class="lcd-vfo">
+        <span class="lcd-arrow" aria-hidden="true">&#9654;</span>
+        <span class="lcd-freq">146.520</span>
+        <span class="lcd-ch">128</span>
+      </div>
+      <div class="lcd-vfo">
+        <span class="lcd-arrow" aria-hidden="true"></span>
+        <span class="lcd-freq">462.675</span>
+        <span class="lcd-ch">020</span>
+      </div>
       <div class="lcd-row lcd-small">
-        <span>2M NATIONAL SIMPLEX CALLING</span>
-        <span class="lcd-right">FM &#183; NFM</span>
+        <span>A&#8202;: 2M NATIONAL CALLING</span>
+        <span class="lcd-right">B&#8202;: GMRS CH 20</span>
       </div>
     </div>
     <p class="lede">
@@ -108,6 +117,13 @@
       Repeater use: transmit on the 467 MHz input, listen on the 462 MHz output,
       with whatever tone the repeater owner publishes. Find repeaters and request
       access on <a href="https://mygmrs.com">myGMRS</a>.
+    </p>
+    <p class="callout">
+      <a href="https://projectlonghaul.com">Project LongHaul</a>: a nationwide
+      push to connect GMRS operators across the USA. Program 462.675 (channel
+      20) with a 141.3 tone on transmit and receive, then call out at 8 or 11,
+      morning or evening Eastern, plus 2 PM and 2 AM, and see who answers.
+      That's the channel on the B line of the radio up top.
     </p>
   </section>
 
@@ -209,6 +225,7 @@
     <ul class="linklist">
       <li><a href="https://www.repeaterbook.com">RepeaterBook</a><span>ham repeater directory, has a good app</span></li>
       <li><a href="https://mygmrs.com">myGMRS</a><span>GMRS repeater directory and community</span></li>
+      <li><a href="https://projectlonghaul.com">Project LongHaul</a><span>nationwide GMRS contact initiative on channel 20</span></li>
       <li><a href="https://hamstudy.org">HamStudy</a><span>free license exam practice</span></li>
       <li><a href="https://www.arrl.org/band-plan">ARRL band plan</a><span>who goes where on every ham band</span></li>
       <li><a href="https://meshcore.io">MeshCore</a><span>official site: docs, apps, and supported hardware</span></li>
