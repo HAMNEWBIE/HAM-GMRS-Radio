@@ -156,6 +156,30 @@
   text-transform: uppercase;
 }
 
+.sponsor-line {
+  margin: -4px 0 10px;
+  text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sponsor-line a { color: var(--orange); }
+
+.embed-why {
+  max-width: 640px;
+  margin: 0 0 18px;
+  padding-left: 22px;
+}
+
+.embed-why li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
 .col-heads {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

@@ -1,4 +1,4 @@
-# HAM-GMRS-Radio
+# amrad
 
 A simple static site for ham radio, GMRS, and mesh networking. Frequencies,
 license paths, useful links, and Net Bingo.

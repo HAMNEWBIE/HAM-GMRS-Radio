@@ -2,6 +2,22 @@
 (function () {
   "use strict";
 
+  /* Sponsor slot. This line renders on every card, on the web, in print,
+     and on saved PNGs, including every card embedded on other sites. To
+     activate a sponsorship, set name (and optionally url) and push: every
+     embed everywhere picks it up on the next load, with no changes to
+     anyone's embed code. Leave name empty for the default house line. */
+  var SPONSOR = {
+    name: "",
+    url: ""
+  };
+
+  function sponsorText() {
+    return SPONSOR.name
+      ? "Compliments of " + SPONSOR.name
+      : "Net Bingo · tinyurl.com/wsnj234";
+  }
+
   var DECKS = {
     ham: {
       label: "Ham net",
@@ -284,9 +300,26 @@
     }
   }
 
+  function renderSponsor() {
+    var line = document.getElementById("sponsor-line");
+    if (!line) return;
+    line.textContent = "";
+    if (SPONSOR.name && SPONSOR.url) {
+      var a = document.createElement("a");
+      a.href = SPONSOR.url;
+      a.rel = "noopener";
+      a.target = "_blank";
+      a.textContent = sponsorText();
+      line.appendChild(a);
+    } else {
+      line.textContent = sponsorText();
+    }
+  }
+
   function render() {
     var deck = DECKS[state.deck];
     updateEmbedSnippet();
+    renderSponsor();
     deckSelect.value = state.deck;
     deckLabelEl.textContent = deck.label;
     cardIdEl.textContent = String(state.seed);
@@ -473,6 +506,10 @@
       " · saved " + new Date().toLocaleString(),
       W / 2, footY + 12
     );
+
+    ctx.font = "500 20px 'IBM Plex Mono', monospace";
+    ctx.fillStyle = "#55604b";
+    ctx.fillText(sponsorText(), W / 2, footY + 48);
 
     return canvas;
   }
