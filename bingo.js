@@ -642,6 +642,37 @@
     });
   });
 
+  /* QR buttons: unfold a scannable code with the link printed under it */
+  Array.prototype.forEach.call(document.querySelectorAll(".btn-qr"), function (btn) {
+    btn.addEventListener("click", function () {
+      var li = btn.closest("li");
+      var existing = li.querySelector(".qr-pop");
+      if (existing) {
+        existing.remove();
+        btn.setAttribute("aria-expanded", "false");
+        return;
+      }
+      var url = btn.getAttribute("data-qr");
+      var pop = document.createElement("figure");
+      pop.className = "qr-pop";
+      var img = document.createElement("img");
+      img.width = 220;
+      img.height = 220;
+      img.alt = "QR code for " + url;
+      img.src = "https://api.qrserver.com/v1/create-qr-code/?size=440x440&format=png&data=" + encodeURIComponent(url);
+      var cap = document.createElement("figcaption");
+      cap.textContent = url;
+      var hint = document.createElement("span");
+      hint.className = "qr-hint";
+      hint.textContent = "Right-click or long-press the code to save it for a flyer.";
+      pop.appendChild(img);
+      pop.appendChild(cap);
+      pop.appendChild(hint);
+      li.appendChild(pop);
+      btn.setAttribute("aria-expanded", "true");
+    });
+  });
+
   /* Net control script copy button */
   var scriptBtn = document.getElementById("copy-script");
   if (scriptBtn) {
