@@ -623,6 +623,31 @@ td.freq.copied {
 
 .linklist span { color: var(--muted); font-size: 0.9rem; }
 
+/* Repos page */
+
+.page-title {
+  margin: 0 0 10px;
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.repolist li { flex-wrap: wrap; }
+
+.repolist span:not(.repo-meta) { flex: 1; min-width: 220px; }
+
+.repo-meta {
+  margin-left: auto;
+  flex: none;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
 /* Footer: walnut base */
 
 .footer {

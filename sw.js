@@ -1,6 +1,6 @@
 /* amrad offline cache.
    Bump CACHE_VERSION whenever you change any file listed in CORE. */
-const CACHE_VERSION = "amrad-v2";
+const CACHE_VERSION = "amrad-v3";
 const CORE = [
   "./",
   "./index.html",
@@ -14,6 +14,8 @@ const CORE = [
   "./ham-starter-chirp.csv",
   "./manifest.webmanifest",
   "./theme.js",
+  "./repos.html",
+  "./repos-data.json",
   "./icon.svg"
 ];
 
@@ -40,6 +42,20 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(req.url);
   const sameOrigin = url.origin === self.location.origin;
+
+  // Weekly-refreshed data: network first so the newest numbers land.
+  if (sameOrigin && url.pathname.endsWith("repos-data.json")) {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE_VERSION).then((c) => c.put(req, copy));
+          return res;
+        })
+        .catch(() => caches.match(req))
+    );
+    return;
+  }
 
   // Navigations: network first so updates land, cache as the fallback.
   if (req.mode === "navigate") {

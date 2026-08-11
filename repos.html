@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repos to Know</title>
+<meta name="description" content="A curated, weekly-refreshed list of active GitHub repositories for amateur radio, GMRS, mesh networking, and SDR.">
+<meta name="theme-color" content="#3a2a1d">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Michroma&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%233A2A1D'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FF9D3C' font-family='monospace'>((</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-row">
+    <a class="brand" href="index.html">HAM-GMRS-RADIO</a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="bingo.html">BINGO</a>
+      <a href="index.html#gmrs">GMRS</a>
+      <a href="index.html#ham">HAM</a>
+      <a href="index.html#mesh">MESH</a>
+      <a href="repos.html" aria-current="page">REPOS</a>
+      <a href="index.html#links">LINKS</a>
+    </nav>
+    <button class="night-toggle" type="button" id="night-toggle" aria-pressed="false">
+      <span class="night-lamp" aria-hidden="true"></span>NIGHT
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1 class="page-title">Repos to know</h1>
+    <p class="lede">
+      The GitHub projects worth watching in radio: programming tools, mesh
+      firmware, SDR software, and toys that make a $30 dongle interesting.
+      Curated by hand, but the stars and activity dates refresh themselves
+      every Monday, so a project that goes quiet shows it.
+    </p>
+    <p class="stamp" id="generated-stamp">Loading current numbers&hellip;</p>
+    <noscript><p class="fineprint">This page needs JavaScript to show live
+      star counts and activity. The same list lives in the
+      <a href="https://github.com/WSNJ234/amrad#repos-to-know">README</a>.</p></noscript>
+  </section>
+
+  <div id="repo-sections"></div>
+
+  <section class="section">
+    <p class="fineprint">
+      Missing something great? The list lives in
+      <a href="https://github.com/WSNJ234/amrad/blob/main/repos.json">repos.json</a>;
+      open an issue or pull request on
+      <a href="https://github.com/WSNJ234/amrad">the site repo</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer class="wrap footer">
+  <span>WSNJ234 &middot; MIT license</span>
+  <a href="https://github.com/WSNJ234/amrad">Source on GitHub</a>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  function fmtStars(n) {
+    if (n == null) return "";
+    if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, "") + "k";
+    return String(n);
+  }
+
+  fetch("repos-data.json", { cache: "no-cache" })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      document.getElementById("generated-stamp").textContent =
+        "Stars and activity checked " + data.generated + ", refreshed weekly";
+
+      var host = document.getElementById("repo-sections");
+      data.categories.forEach(function (cat) {
+        var section = document.createElement("section");
+        section.className = "section";
+
+        var head = document.createElement("div");
+        head.className = "section-head";
+        var h2 = document.createElement("h2");
+        h2.textContent = cat.title;
+        var tag = document.createElement("span");
+        tag.className = "range-tag";
+        tag.textContent = cat.tag;
+        head.appendChild(h2);
+        head.appendChild(tag);
+        section.appendChild(head);
+
+        var ul = document.createElement("ul");
+        ul.className = "linklist repolist";
+        cat.repos.forEach(function (r) {
+          var li = document.createElement("li");
+          var a = document.createElement("a");
+          a.href = r.url;
+          a.textContent = r.repo;
+          li.appendChild(a);
+          var desc = document.createElement("span");
+          desc.textContent = r.desc + (r.archived ? " (archived)" : "");
+          li.appendChild(desc);
+          if (r.stars != null || r.pushed) {
+            var meta = document.createElement("span");
+            meta.className = "repo-meta";
+            var bits = [];
+            if (r.stars != null) bits.push("★ " + fmtStars(r.stars));
+            if (r.pushed) bits.push("pushed " + r.pushed);
+            meta.textContent = bits.join(" · ");
+            li.appendChild(meta);
+          }
+          ul.appendChild(li);
+        });
+        section.appendChild(ul);
+        host.appendChild(section);
+      });
+    })
+    .catch(function () {
+      document.getElementById("generated-stamp").textContent =
+        "Could not load the list. It also lives in the repository README.";
+    });
+})();
+</script>
+
+</body>
+</html>

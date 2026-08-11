@@ -1,0 +1,62 @@
+{
+  "comment": "Curated list for repos.html. Categories and descriptions are hand-written; stars and activity are refreshed weekly by scripts/update_repos.py via GitHub Actions.",
+  "categories": [
+    {
+      "title": "Program your radio",
+      "tag": "CHIRP AND FRIENDS",
+      "repos": [
+        { "repo": "kk7ds/chirp", "desc": "Free programming software for hundreds of radios. The CSVs on this site load straight into it." },
+        { "repo": "hmatuschek/qdmr", "desc": "Codeplug programming for DMR radios. The CHIRP of digital voice." }
+      ]
+    },
+    {
+      "title": "Station and logging",
+      "tag": "THE SHACK",
+      "repos": [
+        { "repo": "Hamlib/Hamlib", "desc": "The rig-control library working behind most logging and digital-mode software." },
+        { "repo": "wavelog/wavelog", "desc": "Self-hosted web logbook, the actively developed successor to Cloudlog." },
+        { "repo": "foldynl/QLog", "desc": "Fast desktop logger with rig control, maps, and cluster spots." },
+        { "repo": "km4ack/73Linux", "desc": "Scripted install of a whole ham software stack on a Raspberry Pi." }
+      ]
+    },
+    {
+      "title": "Mesh networks",
+      "tag": "LORA AND BEYOND",
+      "repos": [
+        { "repo": "meshcore-dev/MeshCore", "desc": "The LoRa mesh this site favors: routed through designated repeaters, with room servers for group chat." },
+        { "repo": "meshtastic/firmware", "desc": "The biggest LoRa mesh community. Flood-routed, huge hardware support." },
+        { "repo": "aredn/aredn", "desc": "Ham-licensed high-bandwidth IP mesh firmware for off-the-shelf WiFi gear." },
+        { "repo": "markqvist/Reticulum", "desc": "A cryptographic network stack that runs over LoRa, packet radio, or any byte pipe." }
+      ]
+    },
+    {
+      "title": "Software-defined radio",
+      "tag": "SDR",
+      "repos": [
+        { "repo": "AlexandreRouma/SDRPlusPlus", "desc": "Fast, clean, cross-platform SDR receiver. A great first stop for a new dongle." },
+        { "repo": "f4exb/sdrangel", "desc": "The SDR swiss army knife: transmit and receive, dozens of demodulators." },
+        { "repo": "gqrx-sdr/gqrx", "desc": "The classic Linux and Mac SDR receiver, still going strong." },
+        { "repo": "SatDump/SatDump", "desc": "Decode weather satellites and a whole zoo of downlinks, pictures included." },
+        { "repo": "ka9q/ka9q-radio", "desc": "Hundreds of simultaneous channels from one SDR, from Phil Karn KA9Q." },
+        { "repo": "luarvique/openwebrx", "desc": "OpenWebRX+, a web SDR receiver your whole club can tune at once." }
+      ]
+    },
+    {
+      "title": "Packet and digital voice",
+      "tag": "APRS / HOTSPOTS",
+      "repos": [
+        { "repo": "wb2osz/direwolf", "desc": "The software TNC behind most APRS igates and packet setups." },
+        { "repo": "g4klx/MMDVM-Host", "desc": "The software heart of most digital-voice hotspots." }
+      ]
+    },
+    {
+      "title": "Fun with radio waves",
+      "tag": "POINT A DONGLE AT IT",
+      "repos": [
+        { "repo": "merbanan/rtl_433", "desc": "Decode the 433 and 915 MHz chatter around you: weather stations, tire sensors, doorbells." },
+        { "repo": "flightaware/dump1090", "desc": "Track the aircraft over your house via ADS-B with a $30 dongle." },
+        { "repo": "csete/gpredict", "desc": "Real-time satellite tracking and pass prediction for working the birds." }
+      ]
+    }
+  ]
+}
