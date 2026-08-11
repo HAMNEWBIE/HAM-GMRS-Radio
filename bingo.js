@@ -553,6 +553,19 @@
     this.setAttribute("aria-pressed", on ? "true" : "false");
   });
 
+  /* Net control script copy button */
+  var scriptBtn = document.getElementById("copy-script");
+  if (scriptBtn) {
+    scriptBtn.addEventListener("click", function () {
+      var text = document.getElementById("net-script").innerText;
+      navigator.clipboard.writeText(text).then(function () {
+        statusEl.textContent = "Script copied. Fill in the bracketed parts before the net.";
+      }, function () {
+        statusEl.textContent = "Copy failed. Select the script text and copy it manually.";
+      });
+    });
+  }
+
   /* Embed snippet copy button */
   var copyBtn = document.getElementById("copy-embed");
   if (copyBtn) {

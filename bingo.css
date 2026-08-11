@@ -277,6 +277,36 @@ body.bigtext .lede, body.bigtext .house-rules { font-size: 1.2rem; }
   body.bigtext .cell { font-size: 1rem; min-height: 108px; }
 }
 
+/* Net control script section */
+
+.script-section { margin-bottom: 40px; }
+
+.script-section h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 6px;
+  margin: 0 0 6px;
+}
+
+.net-script {
+  max-width: 680px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--orange);
+  border-radius: 0 8px 8px 0;
+  background: #f2f4ee;
+  padding: 6px 22px;
+  margin-bottom: 12px;
+}
+
+.net-script p {
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
 /* Embed snippet section */
 
 .embed-section { margin-bottom: 40px; }
@@ -321,6 +351,7 @@ body.bigtext .lede, body.bigtext .house-rules { font-size: 1.2rem; }
 
 body.embed .topbar,
 body.embed .bingo-intro,
+body.embed .script-section,
 body.embed .embed-section,
 body.embed .decoder,
 body.embed .footer { display: none; }

@@ -77,6 +77,52 @@
     <p id="house-rules" class="house-rules"></p>
   </section>
 
+  <section class="script-section no-print">
+    <h2>Run it on your net</h2>
+    <p class="section-note">
+      A script net control can read on the air to introduce the game, about a
+      minute of airtime. Square brackets are yours to fill in or drop.
+    </p>
+    <div class="net-script" id="net-script">
+      <p>
+        &ldquo;Before we get started tonight, we're trying something fun on
+        [NET NAME]: Net Bingo. Grab your phone or computer and go to
+        <strong>hamnewbie.github.io/HAM-GMRS-Radio</strong>, then tap Bingo.
+        You'll get a random card full of things that, let's be honest, happen
+        on every net. Somebody doubles. Somebody's roger beep is still on.
+        Somebody reports weather that already happened. When you hear one
+        actually happen tonight, tap that square. Five in a row, any
+        direction, is bingo.&rdquo;
+      </p>
+      <p>
+        &ldquo;Two rules. The center square is free, you earned it by showing
+        up. And no calling bingo during check-ins. When we get to
+        [THE COMMENTS ROUND / THE END OF THE NET], come back with your
+        callsign and claim it. Every card has a card number at the top. Give
+        us that number with your claim, because the site can regenerate your
+        exact card from it, so wins are checkable. [Tonight's winner gets
+        PRIZE.]&rdquo;
+      </p>
+      <p>
+        &ldquo;If you'd rather play on paper, hit Print on the site before we
+        start and mark squares with a pen. That's it. Good luck, and try not
+        to be the reason somebody marks a square.&rdquo;
+      </p>
+    </div>
+    <button type="button" id="copy-script" class="btn">Copy script</button>
+    <p class="fineprint">
+      Net control crib notes: share the link before the net starts. When
+      someone claims bingo, ask for their card number and open
+      <code>bingo.html?deck=ham&amp;seed=THEIRNUMBER</code> (swap the deck if
+      you ran a different one) to see their exact card, then check the claimed
+      line against what actually happened. Winners can also press Save your
+      winning card and send you the image, which is stamped with the card
+      number, marked count, and save time. Reading the full URL on the air is
+      a mouthful, so consider embedding the card on your club site and sending
+      people there instead.
+    </p>
+  </section>
+
   <section class="embed-section no-print">
     <h2>Embed this on your site</h2>
     <p class="section-note">
