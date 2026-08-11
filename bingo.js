@@ -22,7 +22,7 @@
     ham: {
       label: "Ham net",
       free: "FREE\n“73!”",
-      house: "House rules: claim your bingo after the net closes, never during check-ins. Etiquette lesson free with every square.",
+      house: "House rules: claim your bingo after the net closes, never during check-ins. If you've never been one of these squares, you haven't been on enough nets.",
       squares: [
         "Doubles, apologizes, immediately doubles again",
         "Kerchunk. Silence. We all know who it was.",
