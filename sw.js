@@ -1,6 +1,6 @@
 /* amrad offline cache.
    Bump CACHE_VERSION whenever you change any file listed in CORE. */
-const CACHE_VERSION = "amrad-v1";
+const CACHE_VERSION = "amrad-v2";
 const CORE = [
   "./",
   "./index.html",
@@ -12,7 +12,9 @@ const CORE = [
   "./netops.js",
   "./gmrs-chirp.csv",
   "./ham-starter-chirp.csv",
-  "./manifest.webmanifest"
+  "./manifest.webmanifest",
+  "./theme.js",
+  "./icon.svg"
 ];
 
 self.addEventListener("install", (event) => {

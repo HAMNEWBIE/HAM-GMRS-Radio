@@ -518,11 +518,59 @@ body.embed .controls { margin-top: 8px; }
   .bingo-intro h1 { font-size: 1.5rem; }
 }
 
-/* Print: just the card, ink-friendly */
+/* Night mode: the fixed cream surfaces above go dark; glass and glow
+   components already follow the shared tokens. */
+
+[data-theme="night"] .control-group select,
+[data-theme="night"] .verify-form input {
+  background: #170a06;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="night"] .btn {
+  background: linear-gradient(180deg, #241009, #170a06);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="night"] .btn:hover { background: #2c150c; }
+
+[data-theme="night"] .btn[aria-pressed="true"] {
+  background: #35150c;
+  color: var(--ink);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="night"] .btn-primary {
+  background: linear-gradient(180deg, #a33d16, #7a2c0f);
+  border-color: #4a1c10;
+  color: #ffd9c8;
+}
+
+[data-theme="night"] .card-sheet { background: #120704; box-shadow: none; }
+
+[data-theme="night"] .cell {
+  background: #170a06;
+  box-shadow: none;
+}
+
+[data-theme="night"] .cell[aria-pressed="true"] { background: #35150c; }
+
+[data-theme="night"] .cell-free { background: #241009; }
+
+[data-theme="night"] .net-script,
+[data-theme="night"] .callout { box-shadow: none; }
+
+/* The QR frame stays white in night mode: scanners need the contrast. */
+
+/* Print: just the card, ink-friendly. Force day colors even from night mode. */
 
 @media print {
   .no-print, .topbar, .decoder, .bingo-banner, .status { display: none !important; }
-  body { background: #fff; font-size: 14px; }
+  body { background: #fff !important; color: #000 !important; font-size: 14px; }
+  .card-sheet { background: #fff !important; }
+  .cell { background: #fff !important; color: #000 !important; }
+  .cell-free { background: #f0f0f0 !important; }
+  .cell[aria-pressed="true"] { background: #e8e8e8 !important; }
   .bingo-intro h1 { font-size: 1.6rem; margin: 0; }
   .bingo-intro .lede { display: none; }
   .card-sheet {
